@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message HealthCheckRequest {}
+
+message HealthCheckResponse {
+  string status = 1;
+}
+
+service HealthCheckService {
+  rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+}
