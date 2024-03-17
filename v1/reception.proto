@@ -15,7 +15,7 @@ message Patient {
 
 message Examination {
   int32 id = 1;
-  int32 name = 2;
+  string name = 2;
 }
 
 message Memo {
