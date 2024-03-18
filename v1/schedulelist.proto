@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package proto.v1;
+
+import "v1/reception.proto";
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message ScheduleListRequest {
+  string date = 1;
+  int32 doctor = 2;
+  string mode = 3;
+  int32 page = 4;
+  int32 size = 5;
+}
+
+message Schedule {
+  string title = 1;
+}
+
+message HourSchedule {
+  string date = 1;
+  bool is_holiday = 2;
+  string warning = 3;
+  repeated Schedule schedules = 4;
+}
+
+message ScheduleData {
+  string start_time = 1;
+  repeated HourSchedule data = 2;
+}
+
+message ScheduleListResponse {
+  int32 total_page = 1;
+  int32 current_page = 2;
+  int32 size = 3;
+  repeated ScheduleData list = 4;
+}
+
+service ScheduleListService {
+  rpc ScheduleList(ScheduleListRequest) returns (ScheduleListResponse);
+}
