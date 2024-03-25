@@ -20,7 +20,7 @@ message ReceptionListResponse {
   int32 total_page = 1;
   int32 current_page = 2;
   int32 size = 3;
-  repeated proto.v1.Reception receptions = 4;
+  repeated Reception receptions = 4;
 }
 
 service ReceptionService {
