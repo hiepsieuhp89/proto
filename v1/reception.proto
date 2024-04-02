@@ -15,6 +15,20 @@ message Patient {
   string last_name_furigana = 10;
 }
 
+message PatientRecord {
+  int32 id = 1;
+  int32 gender = 4;
+  string birth_year = 5;
+  string clinical_number = 6;
+  string first_name = 7;
+  string last_name = 8;
+  string first_name_furigana = 9;
+  string last_name_furigana = 10;
+  string last_arrived_time = 11;
+  string clinic_name = 12;
+  string doctor = 13;
+}
+
 message Examination {
   int32 id = 1;
   string name = 2;

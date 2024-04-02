@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package proto.v1;
+
+import "proto/v1/reception.proto";
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message Payment {
+  int32 id = 1;
+  int32 type = 2;
+  string payment_time = 3;
+  string clinical_number = 4;
+  PatientRecord patient  = 5;
+  string clinic_name = 6;
+  float total = 7;
+  int32 status = 8;
+  string unit = 9;
+}
