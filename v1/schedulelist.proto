@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package proto.v1;
 
-import "proto/v1/reception.proto";
-
 option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
 
 message ScheduleListRequest {
