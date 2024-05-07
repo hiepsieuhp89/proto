@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message TreatmentRecord {
+  int32 id = 1;
+  int32 clinic_id = 2;
+  string name = 3;
+}
+
+message InsuranceRecord {
+  int32 id = 1;
+  string name = 2;
+}
+
+message TreatmentItem {
+  int32 id = 1;
+  TreatmentRecord treatment = 2;
+  int32 clinic_id = 3;
+  string start_date = 4;
+  string post_date = 5;
+  int32 insurance_id = 6;
+  string memo = 7;
+}
+
+message TreatmentListRequest {
+  string date = 1;
+}
+
+message TreatmentListResponse {
+  int32 total_page = 1;
+  int32 current_page = 2;
+  int32 size = 3;
+  repeated TreatmentItem treatments = 4;
+}
+
+service TreatmentListService {
+  rpc TreatmentList(TreatmentListRequest) returns (TreatmentListResponse);
+}
