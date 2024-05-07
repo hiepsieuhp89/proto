@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message EffectRegularRecord {
+  int32 id = 1;
+  string name = 2;
+  string method = 3;
+  string status = 4;
+}
+
+message EffectRegularListRequest {
+  int32 page = 1;
+}
+
+message EffectRegularListResponse {
+  int32 total_page = 1;
+  int32 current_page = 2;
+  int32 size = 3;
+  repeated EffectRegularRecord regulars = 4;
+}
+
+service EffectRegularListService {
+  rpc EffectRegularList(EffectRegularListRequest) returns (EffectRegularListResponse);
+}

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package proto.v1;
+
+import "proto/v1/treatmentlist.proto";
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message AllergyListRequest {
+  int32 page = 1;
+}
+
+message AllergyListResponse {
+  int32 total_page = 1;
+  int32 current_page = 2;
+  int32 size = 3;
+  repeated AllergyRecord allergies = 4;
+}
+
+service AllergyListService {
+  rpc AllergyList(AllergyListRequest) returns (AllergyListResponse);
+}

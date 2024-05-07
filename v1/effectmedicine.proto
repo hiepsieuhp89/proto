@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message EffectMedicineRecord {
+  int32 id = 1;
+  string name = 2;
+  string administration_date = 3;
+  string contraindication_date = 4;
+}
+
+message EffectMedicineListRequest {
+  int32 page = 1;
+}
+
+message EffectMedicineListResponse {
+  int32 total_page = 1;
+  int32 current_page = 2;
+  int32 size = 3;
+  repeated EffectMedicineRecord medicines = 4;
+}
+
+service EffectMedicineListService {
+  rpc EffectMedicineList(EffectMedicineListRequest) returns (EffectMedicineListResponse);
+}
