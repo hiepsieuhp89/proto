@@ -15,6 +15,28 @@ message InsuranceRecord {
   string name = 2;
 }
 
+message AllergyRecord {
+  int32 id = 1;
+  string name = 2;
+  string symptom = 3;
+  string date = 4;
+}
+
+message MedicalHistory {
+  int32 id = 1;
+  string name = 2;
+  string date = 3;
+  string surgery = 4;
+  int32 status = 5;
+}
+
+message SymptomData {
+  int32 id = 1;
+  string name = 2;
+  int32 insurance = 3;
+  string date = 4;
+}
+
 message TreatmentItem {
   int32 id = 1;
   TreatmentRecord treatment = 2;
