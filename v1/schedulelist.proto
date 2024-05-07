@@ -14,6 +14,7 @@ message ScheduleListRequest {
 
 message Schedule {
   string title = 1;
+  int32 id = 2;
 }
 
 message HourSchedule {
