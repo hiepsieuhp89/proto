@@ -17,3 +17,16 @@ message Payment {
   int32 status = 8;
   string unit = 9;
 }
+
+message CheckoutSessionRequest {
+  string order_id = 1;
+}
+
+message CheckoutSessionResponse {
+  string session_id = 1;
+  string payment_url = 2;
+}
+
+service PaymentService {
+  rpc CheckoutSession(CheckoutSessionRequest) returns (CheckoutSessionResponse);
+}
