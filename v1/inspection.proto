@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message InspectionDayDetail {
+  string day = 1;
+  float value = 2;
+}
+message InspectionRecord {
+  int32 id = 1;
+  string name = 2;
+  float min = 3;
+  float max = 4;
+  string unit = 5;
+  repeated InspectionDayDetail days = 6;
+}
+
+message InspectionListRequest {
+  int32 page = 1;
+}
+
+message InspectionListResponse {
+  int32 total_page = 1;
+  int32 current_page = 2;
+  int32 size = 3;
+  repeated InspectionRecord inspections = 4;
+}
+
+service InspectionListService {
+  rpc InspectionList(InspectionListRequest) returns (InspectionListResponse);
+}
