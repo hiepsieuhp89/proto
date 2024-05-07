@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message VerifyRequest {
+  string email = 1;
+  string role = 2;
+  string token = 3;
+}
+
+message VerifyResponse {
+  string result = 1;
+  string jwt = 2;
+}
+
+service VerifyService {
+  rpc Verify(VerifyRequest) returns (VerifyResponse);
+}
