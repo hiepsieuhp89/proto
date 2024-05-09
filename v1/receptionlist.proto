@@ -3,17 +3,36 @@ syntax = "proto3";
 package proto.v1;
 
 import "proto/v1/reception.proto";
+import "buf/validate/validate.proto";
 
 option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
 
 message ReceptionListRequest {
-  string date = 1;
-  int32 assign_to = 2;
-  string sort_appointment_time = 3;
-  string sort_reservation_time = 4;
-  int32 status = 5;
-  int32 page = 6;
-  int32 size = 7;
+  string date = 1 [(buf.validate.field) = {
+    string: {
+      pattern: "^\\d{4}-\\d{2}-\\d{2}$",
+    },
+    ignore_empty: true,
+  }];
+  int32 assign_to = 2 [(buf.validate.field).int32.gt = 0];
+  string sort_appointment_time = 3 [(buf.validate.field).string = {
+    in: ["asc", "desc", "ASC", "DESC"]
+  }];
+  string sort_reservation_time = 4 [(buf.validate.field).string = {
+    in: ["asc", "desc", "ASC", "DESC"]
+  }];
+  repeated int32 status = 5 [(buf.validate.field).repeated = {
+    unique: true,
+    max_items: 6,
+    items: {
+      int32: {
+        gt: 0,
+        lt: 6,
+      }
+    }
+  }];
+  int32 page = 6 [(buf.validate.field).int32.gt = 0];
+  int32 size = 7 [(buf.validate.field).int32.gt = 0];
 }
 
 message ReceptionListResponse {

@@ -32,6 +32,7 @@ message Memo {
 message Label {
   int64 id = 1;
   string name = 2;
+  string theme = 3;
 }
 
 message Doctor {
@@ -47,6 +48,6 @@ message Reception {
   Patient patient = 5;
   Examination examination = 6;
   Doctor doctor = 7;
-  Memo memo = 8;
+  repeated Memo memo = 8;
   repeated Label labels = 9;
 }
