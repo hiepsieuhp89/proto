@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package proto.v1;
+
+message CreateReceptionRequest {
+  string appointment_time = 1;
+  int32 clinic_id = 2;
+  int32 patient_id = 3;
+  int32 examination_id = 4;
+  int32 doctor_id = 5;
+  string memo_content = 6;
+}
+
+message CreateReceptionResponse {
+  int64 reception_id = 1;
+}
+
+service CreateReceptionService {
+  rpc CreateReception(CreateReceptionRequest) returns (CreateReceptionResponse);
+}
