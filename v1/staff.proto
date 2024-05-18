@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package proto.v1;
 
+import "proto/v1/reception.proto";
+
 option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
 
 message Staff {
@@ -15,7 +17,7 @@ message Staff {
     string meet_id = 8;
 }
 
-message CreateStaffRequest {
+message CreateDoctorRequest {
     string first_name = 1;
     string last_name = 2;
     string email = 3;
@@ -25,24 +27,24 @@ message CreateStaffRequest {
     string meet_id = 7;
 }
 
-message CreateStaffResponse {
+message CreateDoctorResponse {
     int64 id = 1;
 }
 
-message ListStaffRequest {
+message ListDoctorRequest {
     string keyword = 1;
     int32 page = 2;
     int32 size = 3;
 }
 
-message ListStaffResponse {
+message ListDoctorResponse {
     int32 total_page = 1;
     int32 current_page = 2;
     int32 size = 3;
-    repeated Staff staffs = 4;
+    repeated Doctor doctors = 4;
 }
 
 service StaffService {
-    rpc CreateStaff(CreateStaffRequest) returns (CreateStaffResponse);
-    rpc ListStaff(ListStaffRequest) returns (ListStaffResponse);
+    rpc CreateDoctor(CreateDoctorRequest) returns (CreateDoctorResponse);
+    rpc ListDoctor(ListDoctorRequest) returns (ListDoctorResponse);
 }
