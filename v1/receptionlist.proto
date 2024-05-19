@@ -25,4 +25,5 @@ message ReceptionListResponse {
 
 service ReceptionService {
   rpc ReceptionList(ReceptionListRequest) returns (ReceptionListResponse);
+  rpc GetDetailReception(GetDetailReceptionRequest) returns (GetDetailReceptionResponse);
 }

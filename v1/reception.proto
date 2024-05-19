@@ -51,3 +51,24 @@ message Reception {
   repeated Memo memo = 8;
   repeated Label labels = 9;
 }
+
+message DetailReception {
+  int64 id = 1;
+  string appointment_time = 2;
+  string reception_time = 3;
+  int32 status = 4;
+  Patient patient = 5;
+  Examination examination = 6;
+  Doctor doctor = 7;
+  repeated Memo memo = 8;
+  repeated Label labels = 9;
+  string meeting_url = 10;
+}
+
+message GetDetailReceptionRequest {
+  int64 id = 1;
+}
+
+message GetDetailReceptionResponse {
+  DetailReception reception = 1;
+}
