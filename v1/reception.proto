@@ -72,3 +72,11 @@ message GetDetailReceptionRequest {
 message GetDetailReceptionResponse {
   DetailReception reception = 1;
 }
+
+message PatientReceptionListRequest {
+  int32 patient_id = 1;
+}
+
+message PatientReceptionListResponse {
+  repeated Reception receptions = 1;
+}
