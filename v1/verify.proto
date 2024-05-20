@@ -18,3 +18,4 @@ message VerifyResponse {
 service VerifyService {
   rpc Verify(VerifyRequest) returns (VerifyResponse);
 }
+

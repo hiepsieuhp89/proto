@@ -24,3 +24,4 @@ message ProcessedImageResponse {
 service ProcessedImageService {
   rpc ProcessedImage(ProcessedImageRequest) returns (ProcessedImageResponse);
 }
+

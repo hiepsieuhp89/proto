@@ -19,3 +19,4 @@ message UploadImageResponse {
 service UploadImageService {
   rpc UploadImage(UploadImageRequest) returns (UploadImageResponse);
 }
+
