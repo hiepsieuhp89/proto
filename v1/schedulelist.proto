@@ -39,3 +39,4 @@ message ScheduleListResponse {
 service ScheduleListService {
   rpc ScheduleList(ScheduleListRequest) returns (ScheduleListResponse);
 }
+

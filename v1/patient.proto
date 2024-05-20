@@ -28,3 +28,4 @@ message Patient {
 service PatientService {
   rpc ListPatients(ListPatientsRequest) returns (ListPatientsResponse);
 }
+
