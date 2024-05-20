@@ -25,6 +25,15 @@ message Patient {
   string last_name_furigana = 10;
 }
 
+message DetailPatientRequest {
+  int32 id = 1;
+}
+
+message DetailPatientResponse {
+  Patient patient = 1;
+}
+
 service PatientService {
   rpc ListPatients(ListPatientsRequest) returns (ListPatientsResponse);
+  rpc DetailPatient(DetailPatientRequest) returns (DetailPatientResponse);
 }
