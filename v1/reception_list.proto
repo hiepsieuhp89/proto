@@ -28,3 +28,4 @@ service ReceptionService {
   rpc GetDetailReception(GetDetailReceptionRequest) returns (GetDetailReceptionResponse);
   rpc PatientReceptionList(PatientReceptionListRequest) returns (PatientReceptionListResponse);
 }
+

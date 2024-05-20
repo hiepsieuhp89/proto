@@ -37,3 +37,4 @@ service PatientService {
   rpc ListPatients(ListPatientsRequest) returns (ListPatientsResponse);
   rpc DetailPatient(DetailPatientRequest) returns (DetailPatientResponse);
 }
+
