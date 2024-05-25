@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message InterviewHistoryRecord {
+  int32 id = 1;
+  string name = 2;
+  string date = 3;
+}
+
+message InterviewListRequest {
+  int32 page = 1;
+  int32 user_id = 2;
+}
+
+message InterviewListResponse {
+  int32 total_page = 1;
+  int32 current_page = 2;
+  int32 size = 3;
+  repeated InterviewHistoryRecord interviews = 4;
+}
+
+service InterviewListService {
+  rpc InterviewList(InterviewListRequest) returns (InterviewListResponse);
+}

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message EffectSymptomRecord {
+  int32 id = 1;
+  string name = 2;
+  string date = 3;
+  string symptom = 4;
+}
+
+message EffectSymptomListRequest {
+  int32 page = 1;
+}
+
+message EffectSymptomListResponse {
+  int32 total_page = 1;
+  int32 current_page = 2;
+  int32 size = 3;
+  repeated EffectSymptomRecord symptoms = 4;
+}
+
+service EffectSymptomListService {
+  rpc EffectSymptomList(EffectSymptomListRequest) returns (EffectSymptomListResponse);
+}

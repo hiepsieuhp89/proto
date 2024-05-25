@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message UploadImageRequest {
+  int32 patient_id = 1;
+  bytes content = 2;
+  string file_name = 3;
+  string file_type = 4;
+}
+
+message UploadImageResponse {
+  string status = 1;
+  int32 process_id = 2;
+}
+
+service UploadImageService {
+  rpc UploadImage(UploadImageRequest) returns (UploadImageResponse);
+}
+
