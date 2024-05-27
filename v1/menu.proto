@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message ListMenuRequest {
+}
+
+message MenuItem {
+  int32 id = 1;
+  string examination_category = 2;
+  string major_category = 3;
+  string minor_category = 4;
+  int32 price = 5;
+  string body_part_category = 6;
+}
+
+message ListMenuResponse {
+  repeated MenuItem items = 1;
+}
+
+service ListMenuService {
+  rpc ListMenu(ListMenuRequest) returns (ListMenuResponse);
+}

@@ -32,11 +32,13 @@ message Memo {
 message Label {
   int64 id = 1;
   string name = 2;
+  string theme = 3;
 }
 
 message Doctor {
   int32 id = 1;
   string name = 2;
+  string meeting_url = 3;
 }
 
 message Reception {
@@ -47,7 +49,35 @@ message Reception {
   Patient patient = 5;
   Examination examination = 6;
   Doctor doctor = 7;
-  Memo memo = 8;
+  repeated Memo memo = 8;
   repeated Label labels = 9;
 }
 
+message DetailReception {
+  int64 id = 1;
+  string appointment_time = 2;
+  string reception_time = 3;
+  int32 status = 4;
+  Patient patient = 5;
+  Examination examination = 6;
+  Doctor doctor = 7;
+  repeated Memo memo = 8;
+  repeated Label labels = 9;
+  string meeting_url = 10;
+}
+
+message GetDetailReceptionRequest {
+  int64 id = 1;
+}
+
+message GetDetailReceptionResponse {
+  DetailReception reception = 1;
+}
+
+message PatientReceptionListRequest {
+  int32 patient_id = 1;
+}
+
+message PatientReceptionListResponse {
+  repeated Reception receptions = 1;
+}
