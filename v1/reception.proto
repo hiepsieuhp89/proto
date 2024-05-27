@@ -38,6 +38,7 @@ message Label {
 message Doctor {
   int32 id = 1;
   string name = 2;
+  string meeting_url = 3;
 }
 
 message Reception {
