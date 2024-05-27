@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package proto.v1;
 
-import "proto/v1/treatmentlist.proto";
+import "proto/v1/treatment_list.proto";
 
 option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
 
