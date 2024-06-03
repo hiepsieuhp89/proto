@@ -13,6 +13,7 @@ message CreateReceptionRequest {
   string first_name_furigana = 6;
   string birth_date = 7;
   string phone_number = 8;
+  int32 patient_id = 9;
 }
 
 message CreateReceptionResponse {

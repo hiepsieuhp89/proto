@@ -23,6 +23,9 @@ message Patient {
   string last_name = 8;
   string first_name_furigana = 9;
   string last_name_furigana = 10;
+  string member_id = 11;
+  string customer_id = 12;
+  string phone = 13;
 }
 
 message DetailPatientRequest {
@@ -33,8 +36,17 @@ message DetailPatientResponse {
   Patient patient = 1;
 }
 
+message SearchPatientRequest{
+  int32 id = 1;
+}
+
+message SearchPatientResponse {
+  Patient patient = 1;
+}
+
 service PatientService {
   rpc ListPatients(ListPatientsRequest) returns (ListPatientsResponse);
   rpc DetailPatient(DetailPatientRequest) returns (DetailPatientResponse);
+  rpc SearchPatient(SearchPatientRequest) returns (SearchPatientResponse);
 }
 
