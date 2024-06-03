@@ -5,6 +5,9 @@ package proto.v1;
 option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
 
 message ListPatientsRequest {
+    string keyword = 1;
+    int32 page = 2;
+    int32 size = 3;
 }
 
 message ListPatientsResponse {
