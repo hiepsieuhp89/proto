@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package proto.v1;
+
+import "proto/v1/reception.proto";
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message CreateLabelRequest {
+    string name = 1;
+    string color = 2;
+}
+
+message CreateLabelResponse {
+    string id = 1;
+}
+
+message LabelListRequest {
+    string keyword = 1;
+    int32 page = 2;
+    int32 size = 3;
+}
+
+message LabelListResponse {
+    repeated Label labels = 1;
+    int32 current_page = 2;
+    int32 size = 3;
+    int32 total = 4;
+}
+
+service LabelService {
+    rpc CreateLabel(CreateLabelRequest) returns (CreateLabelResponse);
+    rpc LabelList(LabelListRequest) returns (LabelListResponse);
+}
