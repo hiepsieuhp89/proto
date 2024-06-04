@@ -13,7 +13,7 @@ message CreateLabelRequest {
 }
 
 message CreateLabelResponse {
-    int64 id = 1;
+    Label label = 1;
 }
 
 message LabelListRequest {
