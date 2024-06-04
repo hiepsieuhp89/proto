@@ -83,11 +83,11 @@ message PatientReceptionListResponse {
   repeated Reception receptions = 1;
 }
 
-message UpdateLabelRequest {
+message UpdateReceptionLabelRequest {
   int64 reception_id = 1;
   int64 label_id = 2;
 }
 
-message UpdateLabelResponse {
+message UpdateReceptionLabelResponse {
   string message = 1;
 }
