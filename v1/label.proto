@@ -9,6 +9,7 @@ option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
 message CreateLabelRequest {
     string name = 1;
     string color = 2;
+    string description = 3;
 }
 
 message CreateLabelResponse {
