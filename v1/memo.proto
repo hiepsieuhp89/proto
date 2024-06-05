@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package proto.v1;
+
+import "proto/v1/reception.proto";
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message CreateMemoRequest {
+  int64 reception_id = 1;
+  string content = 2;
+}
+
+message CreateMemoResponse {
+  Memo memo = 1;
+}
+
+message UpdateMemoRequest {
+  int64 id = 1;
+  string content = 2;
+}
+
+message UpdateMemoResponse {
+  Memo memo = 1;
+}
+
+message MemoListRequest {
+  int64 reception_id = 1;
+}
+
+message MemoListResponse {
+  repeated Memo memos = 1;
+}
+
+message DeleteMemoRequest {
+  int64 id = 1;
+}
+
+message DeleteMemoResponse {
+  string message = 1;
+}
+
+service MemoService {
+  rpc CreateMemo(CreateMemoRequest) returns (CreateMemoResponse);
+  rpc UpdateMemo(UpdateMemoRequest) returns (UpdateMemoResponse);
+  rpc MemoList(MemoListRequest) returns (MemoListResponse);
+  rpc DeleteMemo(DeleteMemoRequest) returns (DeleteMemoResponse);
+}

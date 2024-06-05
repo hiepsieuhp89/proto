@@ -27,6 +27,7 @@ message Examination {
 message Memo {
   int64 id = 1;
   string content = 2;
+  int64 reception_id = 3;
 }
 
 message Label {
