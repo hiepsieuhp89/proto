@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message ListShiftRequest {
+    int32 clinic_id = 1;
+    int32 page = 2;
+    int32 size = 3;
+}
+
+message ListShiftResponse {
+  int32 total_page = 1;
+  int32 current_page = 2;
+  int32 size = 3;
+  repeated Shift shifts = 4;
+}
+
+message Shift {
+  int32 id = 1;
+  int32 clinic_id = 2;
+  string category = 3;
+  int32 is_off = 4;
+  string color_code = 5;
+  string work_start_time = 6;
+  string work_end_time = 7;
+  string first_break_start_time = 8;
+  string first_break_end_time = 9;
+  string second_break_start_time = 10;
+  string second_break_end_time = 11;
+}
+
+message StoreShiftRequest {
+  int32 id = 1;
+  string color_code = 2;
+  string work_start_time = 3;
+  string work_end_time = 4;
+  string first_break_start_time = 5;
+  string first_break_end_time = 6;
+  string second_break_start_time = 7;
+  string second_break_end_time = 8;
+  string category = 9;
+}
+
+message StoreShiftResponse {
+  Shift shift = 1;
+}
+
+message ListWorkScheduleRequest{
+  int32 clinic_id = 1;
+  int32 staff_id = 2;
+  string start_date = 3;
+  string end_date = 4;
+}
+
+message ListWorkScheduleResponse {
+  int32 total_page = 1;
+  int32 current_page = 2;
+  int32 size = 3;
+  repeated WorkSchedule schedules = 4;
+}
+
+message WorkSchedule {
+  int32 id = 1;
+  int32 clinic_id = 2;
+  int32 shift_id = 3;
+  string calendar_date = 4;
+}
+
+service ShiftService {
+  rpc ListShift(ListShiftRequest) returns (ListShiftResponse);
+  rpc StoreShift(StoreShiftRequest) returns (StoreShiftResponse);
+  rpc ListWorkSchedule(ListWorkScheduleRequest) returns (ListWorkScheduleResponse);
+}
+
