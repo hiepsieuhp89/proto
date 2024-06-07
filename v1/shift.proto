@@ -32,6 +32,10 @@ message Shift {
 }
 
 message StoreShiftRequest {
+  repeated StoreShiftItem shifts = 1;
+}
+
+message StoreShiftItem {
   int32 id = 1;
   string color_code = 2;
   string work_start_time = 3;
@@ -44,7 +48,7 @@ message StoreShiftRequest {
 }
 
 message StoreShiftResponse {
-  Shift shift = 1;
+  
 }
 
 message ListWorkScheduleRequest{
