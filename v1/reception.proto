@@ -93,3 +93,14 @@ message UpdateReceptionLabelRequest {
 message UpdateReceptionLabelResponse {
   string message = 1;
 }
+
+message UpdateReceptionRequest {
+  int64 reception_id = 1;
+  int32 status = 2;
+  int64 doctor_id = 3;
+  string reception_time = 4;
+}
+
+message UpdateReceptionResponse {
+  Reception reception = 1;
+}

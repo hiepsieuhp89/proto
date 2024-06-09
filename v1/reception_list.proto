@@ -28,5 +28,6 @@ service ReceptionService {
   rpc GetDetailReception(GetDetailReceptionRequest) returns (GetDetailReceptionResponse);
   rpc PatientReceptionList(PatientReceptionListRequest) returns (PatientReceptionListResponse);
   rpc UpdateReceptionLabel(UpdateReceptionLabelRequest) returns (UpdateReceptionLabelResponse);
+  rpc UpdateReception(UpdateReceptionRequest) returns (UpdateReceptionResponse);
 }
 
