@@ -1,4 +1,5 @@
 syntax = "proto3";
+import "proto/v1/reception.proto";
 
 package proto.v1;
 
@@ -14,12 +15,25 @@ message MenuItem {
   string minor_category = 4;
   int32 price = 5;
   string body_part_category = 6;
+  repeated Doctor doctors = 7;
+  int32 clinic_id = 8;
+  string update_type = 9;
+  repeated int32 doctor_ids = 10;
 }
 
 message ListMenuResponse {
   repeated MenuItem items = 1;
 }
 
+message StoreMenuRequest {
+  repeated MenuItem menus = 1;
+}
+
+message StoreMenuResponse {
+
+}
+
 service ListMenuService {
   rpc ListMenu(ListMenuRequest) returns (ListMenuResponse);
+  rpc StoreMenu(StoreMenuRequest) returns (StoreMenuResponse);
 }
