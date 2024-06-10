@@ -104,3 +104,12 @@ message UpdateReceptionRequest {
 message UpdateReceptionResponse {
   Reception reception = 1;
 }
+
+message GetCompleteReceptionRequest {
+  string date = 1;
+}
+
+message GetCompleteReceptionResponse {
+  int32 complete_reception = 1;
+  int32 total_reception = 2;
+}
