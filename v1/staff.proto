@@ -44,7 +44,21 @@ message ListDoctorResponse {
     repeated Doctor doctors = 4;
 }
 
+message ListStaffRequest {
+    string keyword = 1;
+    int32 page = 2;
+    int32 size = 3;
+}
+
+message ListStaffResponse {
+    int32 total_page = 1;
+    int32 current_page = 2;
+    int32 size = 3;
+    repeated Doctor doctors = 4;
+}
+
 service StaffService {
     rpc CreateDoctor(CreateDoctorRequest) returns (CreateDoctorResponse);
     rpc ListDoctor(ListDoctorRequest) returns (ListDoctorResponse);
+    rpc ListStaff(ListStaffRequest) returns (ListStaffResponse);
 }
