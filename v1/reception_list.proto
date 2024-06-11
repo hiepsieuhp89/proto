@@ -30,5 +30,6 @@ service ReceptionService {
   rpc UpdateReceptionLabel(UpdateReceptionLabelRequest) returns (UpdateReceptionLabelResponse);
   rpc UpdateReception(UpdateReceptionRequest) returns (UpdateReceptionResponse);
   rpc GetCompleteReception(GetCompleteReceptionRequest) returns (GetCompleteReceptionResponse);
+  rpc GetReceptionSchedule(GetReceptionScheduleRequest) returns (GetReceptionScheduleResponse);
 }
 
