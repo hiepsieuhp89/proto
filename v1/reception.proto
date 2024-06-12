@@ -121,17 +121,8 @@ message GetReceptionScheduleRequest {
   string date = 3;
 }
 
-message DoctorDateSchedule {
-  string date = 1;
-  repeated string busy_time = 2;
-}
-
-message DoctorSchedule {
-  int64 id = 1;
-  repeated DoctorDateSchedule schedules = 3;
-}
-
 message GetReceptionScheduleResponse {
   repeated Doctor doctors = 1;
-  DoctorSchedule schedule = 2;
+  repeated string dates = 2;
+  repeated string schedule_time = 3;
 }
