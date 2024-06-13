@@ -29,6 +29,7 @@ message Patient {
   string member_id = 11;
   string customer_id = 12;
   string phone = 13;
+  string email = 14;
 }
 
 message DetailPatientRequest {
