@@ -8,6 +8,7 @@ message VerifyRequest {
   string email = 1;
   string role = 2;
   string token = 3;
+  string type = 4;
 }
 
 message VerifyResponse {
