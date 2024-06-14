@@ -30,6 +30,7 @@ message Patient {
   string customer_id = 12;
   string phone = 13;
   string email = 14;
+  string line_id = 15;
 }
 
 message DetailPatientRequest {
@@ -48,9 +49,18 @@ message SearchPatientResponse {
   Patient patient = 1;
 }
 
+message UpdateLineRequest {
+  string line_id = 1;
+}
+
+message UpdateLineResponse {
+  Patient patient = 1;
+}
+
 service PatientService {
   rpc ListPatients(ListPatientsRequest) returns (ListPatientsResponse);
   rpc DetailPatient(DetailPatientRequest) returns (DetailPatientResponse);
+  rpc UpdateLine(UpdateLineRequest) returns (UpdateLineResponse);
   rpc SearchPatient(SearchPatientRequest) returns (SearchPatientResponse);
 }
 
