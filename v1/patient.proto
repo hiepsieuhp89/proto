@@ -57,10 +57,18 @@ message UpdateLineResponse {
   Patient patient = 1;
 }
 
+message UserInfoRequest {
+}
+
+message UserInfoResponse {
+  Patient patient = 1;
+}
+
 service PatientService {
   rpc ListPatients(ListPatientsRequest) returns (ListPatientsResponse);
   rpc DetailPatient(DetailPatientRequest) returns (DetailPatientResponse);
   rpc UpdateLine(UpdateLineRequest) returns (UpdateLineResponse);
+  rpc UserInfo(UserInfoRequest) returns (UserInfoResponse);
   rpc SearchPatient(SearchPatientRequest) returns (SearchPatientResponse);
 }
 
