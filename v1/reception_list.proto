@@ -23,6 +23,19 @@ message ReceptionListResponse {
   repeated Reception receptions = 4;
 }
 
+
+message UserReceptionListRequest {
+  int32 page = 1;
+  int32 size = 2;
+}
+
+message UserReceptionListResponse {
+  int32 total_page = 1;
+  int32 current_page = 2;
+  int32 size = 3;
+  repeated Reception receptions = 4;
+}
+
 service ReceptionService {
   rpc ReceptionList(ReceptionListRequest) returns (ReceptionListResponse);
   rpc GetDetailReception(GetDetailReceptionRequest) returns (GetDetailReceptionResponse);
@@ -31,5 +44,6 @@ service ReceptionService {
   rpc UpdateReception(UpdateReceptionRequest) returns (UpdateReceptionResponse);
   rpc GetCompleteReception(GetCompleteReceptionRequest) returns (GetCompleteReceptionResponse);
   rpc GetReceptionSchedule(GetReceptionScheduleRequest) returns (GetReceptionScheduleResponse);
+  rpc UserReceptionList(UserReceptionListRequest) returns (UserReceptionListResponse);
 }
 
