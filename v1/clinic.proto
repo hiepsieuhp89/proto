@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message Clinic {
+  int32 id = 1;
+  string name = 2;
+  string address = 3;
+  string phone = 4;
+  string email = 5;
+}
+
+message ClinicListRequest {
+    string keyword = 1;
+    int32 page = 2;
+    int32 size = 3;
+}
+
+message ClinicListResponse {
+    repeated Clinic clinics = 1;
+    int32 total = 4;
+}
+
+service ClinicService {
+  rpc ClinicList(ClinicListRequest) returns (ClinicListResponse);
+}
