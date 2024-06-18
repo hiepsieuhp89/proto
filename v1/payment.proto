@@ -26,7 +26,15 @@ message CheckoutSessionResponse {
   string session_id = 1;
   string payment_url = 2;
 }
+message VerifyPaymentRequest {
+  string session_id = 1;
+}
+
+message VerifyPaymentResponse {
+  string status = 1;
+}
 
 service PaymentService {
   rpc CheckoutSession(CheckoutSessionRequest) returns (CheckoutSessionResponse);
+  rpc VerifyPayment(VerifyPaymentRequest) returns (VerifyPaymentResponse);
 }
