@@ -20,6 +20,8 @@ message Payment {
 
 message CheckoutSessionRequest {
   string order_id = 1;
+  string success_url = 2;
+  string cancel_url = 3;
 }
 
 message CheckoutSessionResponse {
