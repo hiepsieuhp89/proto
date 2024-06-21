@@ -24,6 +24,23 @@ message ReceptionListResponse {
   repeated Reception receptions = 4;
 }
 
+message FirstReceptionListRequest {
+  int32 assign_to = 2;
+  string sort_appointment_time = 3;
+  string sort_reservation_time = 4;
+  repeated int32 status = 5;
+  int32 page = 6;
+  int32 size = 7;
+  string from_date = 8;
+  string to_date = 9;
+}
+
+message FirstReceptionListResponse {
+  int32 total_page = 1;
+  int32 current_page = 2;
+  int32 size = 3;
+  repeated Reception receptions = 4;
+}
 
 message UserReceptionListRequest {
   int32 page = 1;
@@ -39,6 +56,7 @@ message UserReceptionListResponse {
 
 service ReceptionService {
   rpc ReceptionList(ReceptionListRequest) returns (ReceptionListResponse);
+  rpc FirstReceptionList(FirstReceptionListRequest) returns (FirstReceptionListResponse);
   rpc GetDetailReception(GetDetailReceptionRequest) returns (GetDetailReceptionResponse);
   rpc PatientReceptionList(PatientReceptionListRequest) returns (PatientReceptionListResponse);
   rpc UpdateReceptionLabel(UpdateReceptionLabelRequest) returns (UpdateReceptionLabelResponse);
