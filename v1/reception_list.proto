@@ -64,5 +64,6 @@ service ReceptionService {
   rpc GetCompleteReception(GetCompleteReceptionRequest) returns (GetCompleteReceptionResponse);
   rpc GetReceptionSchedule(GetReceptionScheduleRequest) returns (GetReceptionScheduleResponse);
   rpc UserReceptionList(UserReceptionListRequest) returns (UserReceptionListResponse);
+  rpc CreateReception(CreateReceptionRequest) returns (CreateReceptionResponse);
 }
 

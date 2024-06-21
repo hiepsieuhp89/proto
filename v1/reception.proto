@@ -128,3 +128,21 @@ message GetReceptionScheduleResponse {
   repeated string dates = 2;
   repeated string schedule_time = 3;
 }
+
+message CreateReceptionRequest {
+  string appointment_time = 1;
+  int32 examination_id = 2;
+  int32 doctor_id = 3;
+  string memo_content = 4;
+  string first_name = 5;
+  string first_name_furigana = 6;
+  string birth_date = 7;
+  string phone_number = 8;
+  int32 patient_id = 9;
+  string last_name = 10;
+  string last_name_furigana = 11;
+}
+
+message CreateReceptionResponse {
+  int64 reception_id = 1;
+}
