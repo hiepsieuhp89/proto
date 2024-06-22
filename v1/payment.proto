@@ -22,6 +22,8 @@ message CheckoutSessionRequest {
   string order_id = 1;
   string success_url = 2;
   string cancel_url = 3;
+  string payment_type = 4;
+  string orderable_type = 5;
 }
 
 message CheckoutSessionResponse {
@@ -31,7 +33,6 @@ message CheckoutSessionResponse {
 
 message VerifyPaymentRequest {
   string session_id = 1;
-  string payment_type = 2;
 }
 
 message VerifyPaymentResponse {
