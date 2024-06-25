@@ -141,6 +141,7 @@ message CreateReceptionRequest {
   int32 patient_id = 9;
   string last_name = 10;
   string last_name_furigana = 11;
+  string line_id = 12;
 }
 
 message CreateReceptionResponse {
