@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message Room {
+    int32 id = 1;
+    int32 clinic_id = 2;
+    string room_name = 3;
+    string room_info = 4;
+    int32 type_id = 5;
+    string type_name = 6;
+}
+
+message CreateRoomRequest {
+    int32 clinic_id = 1;
+    string room_name = 2;
+    string room_info = 3;
+    int32 type_id = 4;
+}
+
+message CreateRoomResponse {
+    int32 id = 1;
+}
+
+message UpdateRoomRequest {
+    int32 id = 1;
+    string room_name = 2;
+    string room_info = 3;
+    int32 type_id = 4;
+}
+
+message UpdateRoomResponse {
+    int32 id = 1;
+}
+
+message RoomListRequest {
+    int32 clinic_id = 1;
+    int32 type_id = 2;
+    string keyword = 3;
+    int32 page = 4;
+    int32 size = 5;
+}
+
+message RoomListResponse {
+    repeated Room rooms = 1;
+    int32 total = 2;
+}
+
+service RoomService {
+    rpc CreateRoom(CreateRoomRequest) returns (CreateRoomResponse);
+    rpc UpdateRoom(UpdateRoomRequest) returns (UpdateRoomResponse);
+    rpc RoomList(RoomListRequest) returns (RoomListResponse);
+}
