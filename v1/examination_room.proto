@@ -42,7 +42,7 @@ message DeleteExaminationRoomResponse {
 }
 
 service ExaminationRoomService {
-    rpc GetExaminationRoomList(ExaminationRoomListRequest) returns (ExaminationRoomListResponse);
+    rpc ExaminationRoomList(ExaminationRoomListRequest) returns (ExaminationRoomListResponse);
     rpc CreateExaminationRoom(CreateExaminationRoomRequest) returns (CreateExaminationRoomResponse);
     rpc DeleteExaminationRoom(DeleteExaminationRoomRequest) returns (DeleteExaminationRoomResponse);
 }
