@@ -48,8 +48,17 @@ message RoomListResponse {
     int32 total = 2;
 }
 
+message DeleteRoomRequest {
+    int32 id = 1;
+}
+
+message DeleteRoomResponse {
+    string message = 1;
+}
+
 service RoomService {
     rpc CreateRoom(CreateRoomRequest) returns (CreateRoomResponse);
     rpc UpdateRoom(UpdateRoomRequest) returns (UpdateRoomResponse);
     rpc RoomList(RoomListRequest) returns (RoomListResponse);
+    rpc DeleteRoom(DeleteRoomRequest) returns (DeleteRoomResponse);
 }

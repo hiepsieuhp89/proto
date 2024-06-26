@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message ExaminationRoom {
+    int32 room_id = 1;
+    string room_name = 2;
+    string room_info = 3;
+    int32 type_id = 4;
+    string type_name = 5;
+    int32 menu_id = 6;
+    string menu_name = 7;
+}
+
+message ExaminationRoomListRequest {
+    int32 room_id = 1;
+    int32 menu_id = 2;
+}
+
+message ExaminationRoomListResponse {
+    repeated ExaminationRoom rooms = 1;
+}
+
+message CreateExaminationRoomRequest {
+    int32 room_id = 1;
+    int32 menu_id = 2;
+}
+
+message CreateExaminationRoomResponse {
+    string message = 1;
+}
+
+message DeleteExaminationRoomRequest {
+    int32 room_id = 1;
+    int32 menu_id = 2;
+}
+
+message DeleteExaminationRoomResponse {
+    string message = 1;
+}
+
+service ExaminationRoomService {
+    rpc GetExaminationRoomList(ExaminationRoomListRequest) returns (ExaminationRoomListResponse);
+    rpc CreateExaminationRoom(CreateExaminationRoomRequest) returns (CreateExaminationRoomResponse);
+    rpc DeleteExaminationRoom(DeleteExaminationRoomRequest) returns (DeleteExaminationRoomResponse);
+}
