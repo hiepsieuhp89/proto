@@ -20,6 +20,7 @@ message MenuItem {
   int32 clinic_id = 8;
   string update_type = 9;
   repeated int32 doctor_ids = 10;
+  repeated int32 room_ids = 11;
 }
 
 message ListMenuResponse {
