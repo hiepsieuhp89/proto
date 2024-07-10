@@ -97,4 +97,3 @@ service ShiftService {
   rpc StoreWorkSchedule(StoreWorkScheduleRequest) returns (StoreWorkScheduleResponse);
   rpc ListWorkSchedule(ListWorkScheduleRequest) returns (ListWorkScheduleResponse);
 }
-

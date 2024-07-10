@@ -71,4 +71,3 @@ service PatientService {
   rpc UserInfo(UserInfoRequest) returns (UserInfoResponse);
   rpc SearchPatient(SearchPatientRequest) returns (SearchPatientResponse);
 }
-

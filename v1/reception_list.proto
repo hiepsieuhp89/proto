@@ -66,4 +66,3 @@ service ReceptionService {
   rpc UserReceptionList(UserReceptionListRequest) returns (UserReceptionListResponse);
   rpc CreateReception(CreateReceptionRequest) returns (CreateReceptionResponse);
 }
-
