@@ -15,9 +15,13 @@ message Staff {
     string last_name_furigana = 6;
     string type = 7;
     string meet_id = 8;
+    string position = 9;
+    string medical_license_number = 10;
+    string medical_registration_number = 11;
+    int64 clinic_id = 12;
 }
 
-message CreateDoctorRequest {
+message StoreDoctorRequest {
     string first_name = 1;
     string last_name = 2;
     string email = 3;
@@ -25,9 +29,14 @@ message CreateDoctorRequest {
     string last_name_furigana = 5;
     string type = 6;
     string meet_id = 7;
+    string position = 8;
+    string medical_license_number = 9;
+    string medical_registration_number = 10;
+    int64 id = 11;
+    int64 clinic_id = 12;
 }
 
-message CreateDoctorResponse {
+message StoreDoctorResponse {
     int64 id = 1;
 }
 
@@ -54,11 +63,11 @@ message ListStaffResponse {
     int32 total_page = 1;
     int32 current_page = 2;
     int32 size = 3;
-    repeated Doctor doctors = 4;
+    repeated Staff staffs = 4;
 }
 
 service StaffService {
-    rpc CreateDoctor(CreateDoctorRequest) returns (CreateDoctorResponse);
+    rpc StoreDoctor(StoreDoctorRequest) returns (StoreDoctorResponse);
     rpc ListDoctor(ListDoctorRequest) returns (ListDoctorResponse);
     rpc ListStaff(ListStaffRequest) returns (ListStaffResponse);
 }
