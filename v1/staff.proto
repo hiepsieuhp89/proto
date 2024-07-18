@@ -19,6 +19,7 @@ message Staff {
     string medical_license_number = 10;
     string medical_registration_number = 11;
     int64 clinic_id = 12;
+    string clinic_name = 13;
 }
 
 message StoreDoctorRequest {
