@@ -31,6 +31,8 @@ message Patient {
   string phone = 13;
   string email = 14;
   string line_id = 15;
+  int32 cancel_count = 16;
+  int32 late_count = 17;
 }
 
 message DetailPatientRequest {
@@ -78,6 +80,8 @@ message StorePatientRequest {
   string phone = 13;
   string email = 14;
   string line_id = 15;
+  optional int32 cancel_count = 16;
+  optional int32 late_count = 17;
 }
 
 message StorePatientResponse {

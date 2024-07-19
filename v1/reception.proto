@@ -55,6 +55,10 @@ message Reception {
   Doctor doctor = 7;
   repeated Memo memo = 8;
   repeated Label labels = 9;
+  string title = 10;
+  string complaint = 11;
+  string treatment = 12;
+  string prescription = 13;
 }
 
 message DetailReception {
@@ -68,6 +72,10 @@ message DetailReception {
   repeated Memo memo = 8;
   repeated Label labels = 9;
   string meeting_url = 10;
+  string title = 11;
+  string complaint = 12;
+  string treatment = 13;
+  string prescription = 14;
 }
 
 message GetDetailReceptionRequest {
@@ -104,6 +112,17 @@ message UpdateReceptionRequest {
 
 message UpdateReceptionResponse {
   Reception reception = 1;
+}
+
+message StoreReceptionRequest {
+  int32 id = 1;
+  string title = 2;
+  string complaint = 3;
+  string treatment = 4;
+  string prescription = 5;
+}
+
+message StoreReceptionResponse {
 }
 
 message GetCompleteReceptionRequest {
