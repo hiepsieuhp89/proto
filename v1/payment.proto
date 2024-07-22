@@ -37,6 +37,7 @@ message VerifyPaymentRequest {
 
 message VerifyPaymentResponse {
   string status = 1;
+  int32 order_id = 2;
 }
 
 message PaymentHistory {
@@ -48,6 +49,7 @@ message PaymentHistory {
   string payment_type = 6;
   string patient_name = 7;
   string patient_no = 8;
+  int32 clinic_id = 9;
 }
 
 message GetPaymentHistoryRequest {
@@ -65,8 +67,17 @@ message GetPaymentHistoryResponse {
   repeated PaymentHistory payments = 4;
 }
 
+message GetPaymentDetailRequest {
+  int32 id = 1;
+}
+
+message GetPaymentDetailResponse {
+  PaymentHistory payment = 1;
+}
+
 service PaymentService {
   rpc CheckoutSession(CheckoutSessionRequest) returns (CheckoutSessionResponse);
   rpc VerifyPayment(VerifyPaymentRequest) returns (VerifyPaymentResponse);
   rpc GetPaymentHistory(GetPaymentHistoryRequest) returns (GetPaymentHistoryResponse);
+  rpc GetPaymentDetail(GetPaymentDetailRequest) returns (GetPaymentDetailResponse);
 }
