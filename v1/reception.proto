@@ -59,6 +59,7 @@ message Reception {
   string complaint = 11;
   string treatment = 12;
   string prescription = 13;
+  int32 clinic_id = 14;
 }
 
 message DetailReception {
@@ -76,6 +77,7 @@ message DetailReception {
   string complaint = 12;
   string treatment = 13;
   string prescription = 14;
+  int32 clinic_id = 15;
 }
 
 message GetDetailReceptionRequest {
