@@ -30,6 +30,7 @@ message UpdateRoomRequest {
     string room_name = 2;
     string room_info = 3;
     int32 type_id = 4;
+    optional int32 sort = 5;
 }
 
 message UpdateRoomResponse {
