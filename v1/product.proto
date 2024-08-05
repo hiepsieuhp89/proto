@@ -10,6 +10,7 @@ message Product {
   string product_name = 4;
   int32 price = 5;
   string note = 6;
+  optional int32 sort = 7;
 }
 
 message ListProductRequest {

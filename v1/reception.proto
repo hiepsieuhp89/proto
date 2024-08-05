@@ -36,6 +36,7 @@ message Label {
   string color = 3;
   int32 clinic_id = 4;
   string description = 5;
+  optional int32 sort = 6;
 }
 
 message Doctor {

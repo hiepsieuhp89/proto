@@ -34,6 +34,7 @@ message UpdateLabelRequest {
     string name = 2;
     string color = 3;
     string description = 4;
+    optional int32 sort = 5;
 }
 
 message UpdateLabelResponse {

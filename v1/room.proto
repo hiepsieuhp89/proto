@@ -11,6 +11,7 @@ message Room {
     string room_info = 4;
     int32 type_id = 5;
     string type_name = 6;
+    optional int32 sort = 7;
 }
 
 message CreateRoomRequest {
