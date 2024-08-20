@@ -6,10 +6,10 @@ option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
 
 message QuestionAnswer {
   optional int32 question_id = 1;
-  string    type = 2;
-  string    question = 3;
+  string type = 2;
+  string question = 3;
   int32 answer_type = 4;
-  repeated string  answers = 5;
+  repeated string answers = 5;
   repeated string options = 6;
 }
 
