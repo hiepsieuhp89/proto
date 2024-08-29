@@ -19,6 +19,7 @@ message Questionaire {
   optional int32 clinic_id = 3;
   optional int32 patient_id = 4;
   repeated QuestionAnswer content = 5;
+  optional int32 question_type = 6;
 }
 
 message StoreAnswerRequest {
