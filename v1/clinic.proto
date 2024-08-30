@@ -20,6 +20,7 @@ message Clinic {
   string instagram_url = 13;
   string google_review_url = 14;
   string area = 15;
+  string cto = 16;
 
 }
 
