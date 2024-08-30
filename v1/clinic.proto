@@ -10,19 +10,38 @@ message Clinic {
   string address = 3;
   string phone = 4;
   string email = 5;
+  string store_url = 6;
+  string postal_code = 7;
+  string prefecture = 8;
+  string address_line1 = 9;
+  string address_line2 = 10;
+  string basic_business_hours_1 = 11;
+  string line_url = 12;
+  string instagram_url = 13;
+  string google_review_url = 14;
+  string area = 15;
+
 }
 
 message ClinicListRequest {
-    string keyword = 1;
-    int32 page = 2;
-    int32 size = 3;
+  string keyword = 1;
+  int32 page = 2;
+  int32 size = 3;
 }
 
 message ClinicListResponse {
-    repeated Clinic clinics = 1;
-    int32 total = 4;
+  repeated Clinic clinics = 1;
+  int32 total = 4;
+}
+
+message StoreClinicRequest {
+  Clinic clinic = 1;
+}
+
+message StoreClinicResponse {
 }
 
 service ClinicService {
   rpc ClinicList(ClinicListRequest) returns (ClinicListResponse);
-}
+  rpc StoreClinic(StoreClinicRequest) returns (StoreClinicResponse);
+} 
