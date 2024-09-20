@@ -21,7 +21,7 @@ message Clinic {
   string google_review_url = 14;
   string area = 15;
   string cto = 16;
-
+  string photo = 17;
 }
 
 message ClinicListRequest {
