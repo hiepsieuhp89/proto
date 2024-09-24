@@ -61,6 +61,7 @@ message Reception {
   string treatment = 12;
   string prescription = 13;
   int32 clinic_id = 14;
+  string end_time = 15;
 }
 
 message DetailReception {
