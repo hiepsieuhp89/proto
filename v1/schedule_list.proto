@@ -18,6 +18,7 @@ message Schedule {
   int32 id = 2;
   string task = 3;
   string duration = 4;
+  string end_time = 5;
 }
 
 message HourSchedule {
