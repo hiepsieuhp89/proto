@@ -80,6 +80,7 @@ message DetailReception {
   string treatment = 13;
   string prescription = 14;
   int32 clinic_id = 15;
+  string end_time = 16;
 }
 
 message GetDetailReceptionRequest {
