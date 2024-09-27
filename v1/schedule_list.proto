@@ -19,6 +19,7 @@ message Schedule {
   string task = 3;
   string duration = 4;
   string end_time = 5;
+  string room = 6;
 }
 
 message HourSchedule {
