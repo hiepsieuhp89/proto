@@ -59,11 +59,16 @@ message DeleteMedicalRecordResponse {
 }
 
 message ListMedicalRecordsRequest {
-  // Could add pagination parameters here if needed
+  int32 page = 1;
+  int32 size = 2;
+  // Add any other filter fields if needed
 }
 
 message ListMedicalRecordsResponse {
-  repeated MedicalRecord medical_records = 1;
+  int32 total_page = 1;
+  int32 current_page = 2;
+  int32 size = 3;
+  repeated MedicalRecord medical_records = 4;
 }
 
 service MedicalRecordService {
