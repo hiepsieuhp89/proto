@@ -12,8 +12,9 @@ message MedicalRecord {
   int64 calculation_type_id = 3;
   int64 patient_id = 4;
   string meta_data = 5;
-  google.protobuf.Timestamp created_at = 6;
-  google.protobuf.Timestamp updated_at = 7;
+  google.protobuf.Timestamp date_time = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
 }
 
 message CreateMedicalRecordRequest {
@@ -21,6 +22,7 @@ message CreateMedicalRecordRequest {
   int64 calculation_type_id = 2;
   int64 patient_id = 3;
   string meta_data = 4;
+  google.protobuf.Timestamp date_time = 5;
 }
 
 message CreateMedicalRecordResponse {
@@ -41,6 +43,7 @@ message UpdateMedicalRecordRequest {
   int64 calculation_type_id = 3;
   int64 patient_id = 4;
   string meta_data = 5;
+  google.protobuf.Timestamp date_time = 6;
 }
 
 message UpdateMedicalRecordResponse {
