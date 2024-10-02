@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+import "google/protobuf/timestamp.proto";
+
+message MedicalRecord {
+  int64 id = 1;
+  int64 clinic_id = 2;
+  int64 calculation_type_id = 3;
+  int64 patient_id = 4;
+  string meta_data = 5;
+  google.protobuf.Timestamp created_at = 6;
+  google.protobuf.Timestamp updated_at = 7;
+}
+
+message CreateMedicalRecordRequest {
+  int64 clinic_id = 1;
+  int64 calculation_type_id = 2;
+  int64 patient_id = 3;
+  string meta_data = 4;
+}
+
+message CreateMedicalRecordResponse {
+  int64 id = 1;
+}
+
+message GetMedicalRecordRequest {
+  int64 id = 1;
+}
+
+message GetMedicalRecordResponse {
+  MedicalRecord medical_record = 1;
+}
+
+message UpdateMedicalRecordRequest {
+  int64 id = 1;
+  int64 clinic_id = 2;
+  int64 calculation_type_id = 3;
+  int64 patient_id = 4;
+  string meta_data = 5;
+}
+
+message UpdateMedicalRecordResponse {
+  // Empty response, could add a success flag if needed
+}
+
+message DeleteMedicalRecordRequest {
+  int64 id = 1;
+}
+
+message DeleteMedicalRecordResponse {
+  // Empty response, could add a success flag if needed
+}
+
+message ListMedicalRecordsRequest {
+  // Could add pagination parameters here if needed
+}
+
+message ListMedicalRecordsResponse {
+  repeated MedicalRecord medical_records = 1;
+}
+
+service MedicalRecordService {
+  rpc CreateMedicalRecord(CreateMedicalRecordRequest) returns (CreateMedicalRecordResponse);
+  rpc GetMedicalRecord(GetMedicalRecordRequest) returns (GetMedicalRecordResponse);
+  rpc UpdateMedicalRecord(UpdateMedicalRecordRequest) returns (UpdateMedicalRecordResponse);
+  rpc DeleteMedicalRecord(DeleteMedicalRecordRequest) returns (DeleteMedicalRecordResponse);
+  rpc ListMedicalRecords(ListMedicalRecordsRequest) returns (ListMedicalRecordsResponse);
+}
