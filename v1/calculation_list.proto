@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+import "google/protobuf/timestamp.proto";
+
+// CalculationType represents a calculation type object
+message CalculationType {
+  int64 id = 1;
+  string name = 2;
+  int32 status = 3;
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp updated_at = 5;
+}
+
+// Create
+message CreateCalculationTypeRequest {
+  string name = 1;
+  int32 status = 2;
+}
+
+message CreateCalculationTypeResponse {
+  int64 id = 1;
+}
+
+// Read
+message GetCalculationTypeRequest {
+  int64 id = 1;
+}
+
+message GetCalculationTypeResponse {
+  CalculationType calculation_type = 1;
+}
+
+// Update
+message UpdateCalculationTypeRequest {
+  int64 id = 1;
+  string name = 2;
+  int32 status = 3;
+}
+
+message UpdateCalculationTypeResponse {
+  // Empty response, could add a success flag if needed
+}
+
+// Delete
+message DeleteCalculationTypeRequest {
+  int64 id = 1;
+}
+
+message DeleteCalculationTypeResponse {
+  // Empty response, could add a success flag if needed
+}
+
+// List
+message ListCalculationTypesRequest {
+  // Could add pagination parameters here if needed
+}
+
+message ListCalculationTypesResponse {
+  repeated CalculationType calculation_types = 1;
+}
+
+// CalculationTypeService defines the gRPC service
+service CalculationTypeService {
+  rpc CreateCalculationType(CreateCalculationTypeRequest) returns (CreateCalculationTypeResponse);
+  rpc GetCalculationType(GetCalculationTypeRequest) returns (GetCalculationTypeResponse);
+  rpc UpdateCalculationType(UpdateCalculationTypeRequest) returns (UpdateCalculationTypeResponse);
+  rpc DeleteCalculationType(DeleteCalculationTypeRequest) returns (DeleteCalculationTypeResponse);
+  rpc ListCalculationTypes(ListCalculationTypesRequest) returns (ListCalculationTypesResponse);
+}
