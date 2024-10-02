@@ -16,6 +16,10 @@ message ScheduleListRequest {
 message Schedule {
   string title = 1;
   int32 id = 2;
+  string task = 3;
+  string duration = 4;
+  string end_time = 5;
+  string room = 6;
 }
 
 message HourSchedule {

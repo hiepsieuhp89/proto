@@ -23,6 +23,7 @@ message MenuItem {
   repeated int32 room_ids = 11;
   int32 quantity = 12;
   int32 expired_after = 13;
+  string average_execution_time = 14;
 }
 
 message ListMenuResponse {

@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message QuestionAnswer {
+  optional int32 question_id = 1;
+  string type = 2;
+  string question = 3;
+  int32 answer_type = 4;
+  repeated string answers = 5;
+  repeated string options = 6;
+}
+
+message Questionaire {
+  optional int32 id = 1;
+  optional int32 reception_id = 2;
+  optional int32 clinic_id = 3;
+  optional int32 patient_id = 4;
+  repeated QuestionAnswer content = 5;
+  optional int32 question_type = 6;
+}
+
+message StoreAnswerRequest {
+  Questionaire questionaire = 1;
+}
+
+message StoreAnswerResponse {
+}
+
+message DetailAnswerRequest {
+  int32 reception_id = 1;
+}
+
+message DetailAnswerResponse {
+  Questionaire questionaire = 1;
+}
+
+service QuestionaireService {
+  rpc StoreAnswer(StoreAnswerRequest) returns (StoreAnswerResponse);
+  rpc DetailAnswer(DetailAnswerRequest) returns (DetailAnswerResponse);
+}
