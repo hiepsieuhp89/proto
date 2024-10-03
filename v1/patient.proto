@@ -88,6 +88,7 @@ message StorePatientRequest {
 }
 
 message StorePatientResponse {
+  int32 id = 1;
 }
 
 service PatientService {

@@ -11,10 +11,11 @@ message MedicalRecord {
   int64 clinic_id = 2;
   int64 calculation_type_id = 3;
   int64 patient_id = 4;
-  string meta_data = 5;
-  google.protobuf.Timestamp date_time = 6;
-  google.protobuf.Timestamp created_at = 7;
-  google.protobuf.Timestamp updated_at = 8;
+  string patient_name = 5;  
+  string meta_data = 6;
+  google.protobuf.Timestamp date_time = 7;
+  google.protobuf.Timestamp created_at = 8;
+  google.protobuf.Timestamp updated_at = 9;
 }
 
 message CreateMedicalRecordRequest {
