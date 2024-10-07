@@ -22,6 +22,7 @@ message Clinic {
   string area = 15;
   string cto = 16;
   string photo = 17;
+  bool medical_record_menu = 18;
 }
 
 message ClinicListRequest {
