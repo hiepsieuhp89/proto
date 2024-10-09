@@ -62,6 +62,7 @@ message Reception {
   string prescription = 13;
   int32 clinic_id = 14;
   string end_time = 15;
+  string duration = 16;
 }
 
 message DetailReception {
@@ -166,6 +167,7 @@ message CreateReceptionRequest {
   string last_name = 10;
   string last_name_furigana = 11;
   string line_id = 12;
+  string duration = 13;
 }
 
 message CreateReceptionResponse {
