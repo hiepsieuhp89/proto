@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+import "google/protobuf/timestamp.proto";
+
+// ReceptionTemplate represents a reception template object
+message ReceptionTemplate {
+  int64 id = 1;
+  string title = 2;
+  string complaint = 3;
+  string treatment = 4;
+  string prescription = 5;
+  google.protobuf.Timestamp created_at = 6;
+  google.protobuf.Timestamp updated_at = 7;
+}
+
+// Create
+message CreateReceptionTemplateRequest {
+  string title = 1;
+  string complaint = 2;
+  string treatment = 3;
+  string prescription = 4;
+}
+
+message CreateReceptionTemplateResponse {
+  int64 id = 1;
+}
+
+// Read
+message GetReceptionTemplateRequest {
+  int64 id = 1;
+}
+
+message GetReceptionTemplateResponse {
+  ReceptionTemplate reception_template = 1;
+}
+
+// Update
+message UpdateReceptionTemplateRequest {
+  int64 id = 1;
+  string title = 2;
+  string complaint = 3;
+  string treatment = 4;
+  string prescription = 5;
+}
+
+message UpdateReceptionTemplateResponse {
+  bool success = 1;
+}
+
+// Delete
+message DeleteReceptionTemplateRequest {
+  int64 id = 1;
+}
+
+message DeleteReceptionTemplateResponse {
+  bool success = 1;
+}
+
+// List with pagination
+message ListReceptionTemplatesRequest {
+  int32 page = 1;
+  int32 page_size = 2;
+}
+
+message ListReceptionTemplatesResponse {
+  repeated ReceptionTemplate reception_templates = 1;
+  int32 total_count = 2;
+  int32 total_pages = 3;
+  int32 current_page = 4;
+}
+
+// ReceptionTemplateService defines the gRPC service
+service ReceptionTemplateService {
+  rpc CreateReceptionTemplate(CreateReceptionTemplateRequest) returns (CreateReceptionTemplateResponse);
+  rpc GetReceptionTemplate(GetReceptionTemplateRequest) returns (GetReceptionTemplateResponse);
+  rpc UpdateReceptionTemplate(UpdateReceptionTemplateRequest) returns (UpdateReceptionTemplateResponse);
+  rpc DeleteReceptionTemplate(DeleteReceptionTemplateRequest) returns (DeleteReceptionTemplateResponse);
+  rpc ListReceptionTemplates(ListReceptionTemplatesRequest) returns (ListReceptionTemplatesResponse);
+}
