@@ -104,6 +104,15 @@ message ListInspectionsResponse {
   int32 total_pages = 3;
 }
 
+// Create multiple inspections
+message CreateInspectionsRequest {
+  repeated CreateInspectionRequest inspections = 1;
+}
+
+message CreateInspectionsResponse {
+  repeated int64 ids = 1;
+}
+
 // InspectionService defines the gRPC service
 service InspectionService {
   rpc CreateInspection(CreateInspectionRequest) returns (CreateInspectionResponse);
@@ -111,4 +120,5 @@ service InspectionService {
   rpc UpdateInspection(UpdateInspectionRequest) returns (UpdateInspectionResponse);
   rpc DeleteInspection(DeleteInspectionRequest) returns (DeleteInspectionResponse);
   rpc ListInspections(ListInspectionsRequest) returns (ListInspectionsResponse);
+  rpc CreateInspections(CreateInspectionsRequest) returns (CreateInspectionsResponse);
 }
