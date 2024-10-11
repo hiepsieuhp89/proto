@@ -4,11 +4,29 @@ package proto.v1;
 
 option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
 
+import "google/protobuf/timestamp.proto";
+
+// Inspection represents an inspection object
+message Inspection {
+  int64 id = 1;
+  int64 clinic_id = 2;
+  int64 patient_id = 3;
+  google.protobuf.Timestamp date_time = 4;
+  string name = 5;
+  string unit = 6;
+  string value = 7;
+  string type = 8;
+  string flags = 9;
+  google.protobuf.Timestamp created_at = 10;
+  google.protobuf.Timestamp updated_at = 11;
+}
+
 message InspectionDayDetail {
   string day = 1;
   float value = 2;
   string flags = 3;
 }
+
 message InspectionRecord {
   int32 id = 1;
   string name = 2;
@@ -19,17 +37,78 @@ message InspectionRecord {
   string flags = 7;
 }
 
-message InspectionListRequest {
+// Create
+message CreateInspectionRequest {
+  int64 clinic_id = 1;
+  int64 patient_id = 2;
+  google.protobuf.Timestamp date_time = 3;
+  string name = 4;
+  string unit = 5;
+  string value = 6;
+  string type = 7;
+  string flags = 8;
+}
+
+message CreateInspectionResponse {
+  int64 id = 1;
+}
+
+// Read
+message GetInspectionRequest {
+  int64 id = 1;
+}
+
+message GetInspectionResponse {
+  Inspection inspection = 1;
+}
+
+// Update
+message UpdateInspectionRequest {
+  int64 id = 1;
+  int64 clinic_id = 2;
+  int64 patient_id = 3;
+  google.protobuf.Timestamp date_time = 4;
+  string name = 5;
+  string unit = 6;
+  string value = 7;
+  string type = 8;
+  string flags = 9;
+}
+
+message UpdateInspectionResponse {
+  // Empty response, could add a success flag if needed
+}
+
+// Delete
+message DeleteInspectionRequest {
+  int64 id = 1;
+}
+
+message DeleteInspectionResponse {
+  // Empty response, could add a success flag if needed
+}
+
+// List
+message ListInspectionsRequest {
   int32 page = 1;
+  int32 page_size = 2;
+  string type = 3;
+  string name = 4;
+  int64 patient_id = 5;
+  int64 clinic_id = 6;
 }
 
-message InspectionListResponse {
-  int32 total_page = 1;
-  int32 current_page = 2;
-  int32 size = 3;
-  repeated InspectionRecord inspections = 4;
+message ListInspectionsResponse {
+  repeated Inspection inspections = 1;
+  int32 total_count = 2;
+  int32 total_pages = 3;
 }
 
-service InspectionListService {
-  rpc InspectionList(InspectionListRequest) returns (InspectionListResponse);
+// InspectionService defines the gRPC service
+service InspectionService {
+  rpc CreateInspection(CreateInspectionRequest) returns (CreateInspectionResponse);
+  rpc GetInspection(GetInspectionRequest) returns (GetInspectionResponse);
+  rpc UpdateInspection(UpdateInspectionRequest) returns (UpdateInspectionResponse);
+  rpc DeleteInspection(DeleteInspectionRequest) returns (DeleteInspectionResponse);
+  rpc ListInspections(ListInspectionsRequest) returns (ListInspectionsResponse);
 }
