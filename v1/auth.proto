@@ -1,5 +1,5 @@
 syntax = "proto3";
-import "proto/v1/patient.proto";
+import "proto/v1/customer.proto";
 package proto.v1;
 
 option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
@@ -13,12 +13,12 @@ message LoginResponse {
   string token = 1;
 }
 
-message RegisterPatientRequest {
-  Patient patient = 1;
+message RegisterCustomerRequest {
+  Customer customer = 1;
 }
 
-message RegisterPatientResponse {
-  Patient patient = 1;
+message RegisterCustomerResponse {
+  Customer customer = 1;
 }
 
 message GetUserInfoRequest {
@@ -34,6 +34,6 @@ message GetUserInfoResponse {
 
 service AuthService {
   rpc Login(LoginRequest) returns (LoginResponse);
-  rpc RegisterPatient(RegisterPatientRequest) returns (RegisterPatientResponse);
+  rpc RegisterCustomer(RegisterCustomerRequest) returns (RegisterCustomerResponse);
   rpc GetUserInfo(GetUserInfoRequest) returns (GetUserInfoResponse);
 }
