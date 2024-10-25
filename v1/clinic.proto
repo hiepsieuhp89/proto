@@ -23,6 +23,7 @@ message Clinic {
   string cto = 16;
   string photo = 17;
   bool medical_record_menu = 18;
+  string meta_data = 19;
 }
 
 message ClinicListRequest {
