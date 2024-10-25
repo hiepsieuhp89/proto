@@ -23,7 +23,7 @@ message Inspection {
 
 message InspectionDayDetail {
   string day = 1;
-  float value = 2;
+  string value = 2;
   string flags = 3;
 }
 
