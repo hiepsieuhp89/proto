@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message AnalyzeRequest {
+  enum Mode {
+    MODE_MONTHLY_UNSPECIFIED = 0;
+    MODE_ANNUAL = 1;
+  }
+  Mode mode = 1;
+  int64 target_date = 2; // Unix timestamp
+}
+
+message AnalyzeResponse {
+  AnalyzeOverview overview = 1;
+  repeated AnalyzeMetric metrics = 2;
+  repeated TreatmentBreakdown treatments = 3;
+  DemographicStats demographics = 4;
+}
+
+message AnalyzeOverview {
+  double total_sales = 1;
+  int32 total_consultations = 2;
+  int32 total_reservations = 3;
+  int32 total_cancellations = 4;
+  double cancellation_rate = 5;
+}
+
+message AnalyzeMetric {
+  int64 date = 1; // Unix timestamp
+  double sales = 2;
+  int32 consultations = 3;
+  int32 reservations = 4;
+  int32 cancellations = 5;
+}
+
+message TreatmentBreakdown {
+  string treatment_name = 1;
+  int32 count = 2;
+  double sales = 3;
+  double average_price = 4;
+}
+
+message DemographicStats {
+  GenderRatio gender_ratio = 1;
+  repeated AgeGroupStats age_groups = 2;
+  RevisitStats revisit_stats = 3;
+}
+
+message GenderRatio {
+  double male_percentage = 1;
+  double female_percentage = 2;
+}
+
+message AgeGroupStats {
+  string age_range = 1;
+  int32 count = 2;
+  double percentage = 3;
+  map<string, int32> treatment_breakdown = 4;
+}
+
+message RevisitStats {
+  double male_revisit_rate = 1;
+  double female_revisit_rate = 2;
+  double overall_revisit_rate = 3;
+}
+
+service AnalyzeService {
+  rpc Analyze(AnalyzeRequest) returns (AnalyzeResponse) {}
+}
