@@ -46,8 +46,6 @@ message TreatmentBreakdown {
 message DemographicStats {
   GenderRatio gender_ratio = 1;
   repeated AgeGroupStats age_groups = 2;
-  repeated AgeGroupStats male_age_groups = 4;
-  repeated AgeGroupStats female_age_groups = 5;
   RevisitStats revisit_stats = 3;
 }
 
@@ -61,6 +59,8 @@ message AgeGroupStats {
   int32 count = 2;
   double percentage = 3;
   map<string, int32> treatment_breakdown = 4;
+  int32 male_count = 5;
+  int32 female_count = 6;
 }
 
 message RevisitStats {
