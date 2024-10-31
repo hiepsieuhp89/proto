@@ -57,7 +57,7 @@ message GenderRatio {
 message AgeGroupStats {
   string age_range = 1;
   int32 count = 2;
-  double percentage = 3;
+  int32 percentage = 3;
   map<string, int32> treatment_breakdown = 4;
   int32 male_count = 5;
   int32 female_count = 6;
