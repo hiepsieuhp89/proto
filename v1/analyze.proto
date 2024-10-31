@@ -46,6 +46,8 @@ message TreatmentBreakdown {
 message DemographicStats {
   GenderRatio gender_ratio = 1;
   repeated AgeGroupStats age_groups = 2;
+  repeated AgeGroupStats male_age_groups = 4;
+  repeated AgeGroupStats female_age_groups = 5;
   RevisitStats revisit_stats = 3;
 }
 
