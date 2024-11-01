@@ -45,6 +45,7 @@ message StoreShiftItem {
   string second_break_start_time = 7;
   string second_break_end_time = 8;
   string category = 9;
+  int32 clinic_id = 10;
 }
 
 message StoreShiftResponse {
