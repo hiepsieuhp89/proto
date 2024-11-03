@@ -20,6 +20,7 @@ message Schedule {
   string duration = 4;
   string end_time = 5;
   string room = 6;
+  repeated string shift_ids = 7;
 }
 
 message HourSchedule {
