@@ -91,10 +91,25 @@ message WorkSchedule {
   int32 staff_id = 5;
 }
 
+message ListStaffShiftRequest {
+  int32 clinic_id = 1;
+  string date = 2;
+}
+
+message StaffShift {
+  int32 staff_id = 1;
+  int32 shift_id = 2;
+}
+
+message ListStaffShiftResponse {
+  repeated StaffShift staff_shifts = 1;
+}
+
 service ShiftService {
   rpc ListShift(ListShiftRequest) returns (ListShiftResponse);
   rpc StoreShift(StoreShiftRequest) returns (StoreShiftResponse);
 
   rpc StoreWorkSchedule(StoreWorkScheduleRequest) returns (StoreWorkScheduleResponse);
   rpc ListWorkSchedule(ListWorkScheduleRequest) returns (ListWorkScheduleResponse);
+  rpc ListStaffShift(ListStaffShiftRequest) returns (ListStaffShiftResponse);
 }
