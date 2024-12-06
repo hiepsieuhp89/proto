@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+import "google/protobuf/timestamp.proto";
+
+message Survey {
+  int64 id = 1;
+  int64 clinic_id = 2;
+  string title = 3;
+  string type = 4;
+  string publish = 5;
+  SurveyMetadata metadata = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
+}
+
+message SurveyMetadata {
+  map<string, string> field_values = 1;
+  repeated Position positions = 2;
+}
+
+message Position {
+  string id = 1;
+  string type = 2;
+  int32 x = 3;
+  int32 y = 4;
+}
+
+message CreateSurveyRequest {
+  int64 clinic_id = 1;
+  string title = 2;
+  string type = 3;
+  string publish = 4;
+  SurveyMetadata metadata = 5;
+}
+
+message CreateSurveyResponse {
+  int64 id = 1;
+}
+
+message GetSurveyRequest {
+  int64 id = 1;
+}
+
+message GetSurveyResponse {
+  Survey survey = 1;
+}
+
+message UpdateSurveyRequest {
+  int64 id = 1;
+  int64 clinic_id = 2;
+  string title = 3;
+  string type = 4;
+  string publish = 5;
+  SurveyMetadata metadata = 6;
+}
+
+message UpdateSurveyResponse {}
+
+message DeleteSurveyRequest {
+  int64 id = 1;
+}
+
+message DeleteSurveyResponse {}
+
+message ListSurveysRequest {
+  int32 page = 1;
+  int32 page_size = 2;
+  string type = 3;
+  string publish = 4;
+  int64 clinic_id = 5;
+}
+
+message ListSurveysResponse {
+  repeated Survey surveys = 1;
+  int32 total_count = 2;
+  int32 total_pages = 3;
+}
+
+service SurveyService {
+  rpc CreateSurvey(CreateSurveyRequest) returns (CreateSurveyResponse);
+  rpc GetSurvey(GetSurveyRequest) returns (GetSurveyResponse);
+  rpc UpdateSurvey(UpdateSurveyRequest) returns (UpdateSurveyResponse);
+  rpc DeleteSurvey(DeleteSurveyRequest) returns (DeleteSurveyResponse);
+  rpc ListSurveys(ListSurveysRequest) returns (ListSurveysResponse);
+} 
