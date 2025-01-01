@@ -60,6 +60,13 @@ message ListStaffRequest {
     int32 page = 2;
     int32 size = 3;
     int32 clinnic_id = 4;
+    string first_name = 5;
+    string last_name = 6;
+    string email = 7;
+    string type = 8;
+    string position = 9;
+    string medical_license_number = 10;
+    string medical_registration_number = 11;
 }
 
 message ListStaffResponse {
