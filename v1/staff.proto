@@ -76,8 +76,17 @@ message ListStaffResponse {
     repeated Staff staffs = 4;
 }
 
+message DeleteStaffRequest {
+    int64 id = 1;
+}
+
+message DeleteStaffResponse {
+    bool success = 1;
+}
+
 service StaffService {
     rpc StoreDoctor(StoreDoctorRequest) returns (StoreDoctorResponse);
     rpc ListDoctor(ListDoctorRequest) returns (ListDoctorResponse);
     rpc ListStaff(ListStaffRequest) returns (ListStaffResponse);
+    rpc DeleteStaff(DeleteStaffRequest) returns (DeleteStaffResponse);
 }
