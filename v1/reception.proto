@@ -45,6 +45,7 @@ message Doctor {
   string type = 3;
   string meeting_url = 4;
   string position = 5;
+  map<string, string> meta_data = 6;
 }
 
 message Reception {
