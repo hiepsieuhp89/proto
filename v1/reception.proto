@@ -183,9 +183,8 @@ message CreateReceptionResponse {
 message FilterWorkScheduleRequest {
   int32 menu_id = 1;
   repeated int64 doctor_id = 2;
-  string from_date = 3;
-  string to_date = 4;
-  int32 filter_type = 5;
+  repeated string dates = 3;
+  int32 filter_type = 4;
 }
 
 message FilterWorkScheduleResponse {
