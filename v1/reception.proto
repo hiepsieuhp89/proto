@@ -179,3 +179,17 @@ message CreateReceptionRequest {
 message CreateReceptionResponse {
   int64 reception_id = 1;
 }
+
+message FilterWorkScheduleRequest {
+  int32 menu_id = 1;
+  repeated int64 doctor_id = 2;
+  string from_date = 3;
+  string to_date = 4;
+  int32 filter_type = 5;
+}
+
+message FilterWorkScheduleResponse {
+  repeated Doctor doctors = 1;
+  repeated string dates = 2;
+  repeated string schedule_time = 3;
+}
