@@ -20,6 +20,7 @@ message Staff {
     string medical_registration_number = 11;
     int64 clinic_id = 12;
     string clinic_name = 13;
+    string staff_no = 14;
 }
 
 message StoreDoctorRequest {
@@ -35,6 +36,7 @@ message StoreDoctorRequest {
     string medical_registration_number = 10;
     int64 id = 11;
     int64 clinic_id = 12;
+    string staff_no = 13;
 }
 
 message StoreDoctorResponse {
@@ -67,6 +69,7 @@ message ListStaffRequest {
     string position = 9;
     string medical_license_number = 10;
     string medical_registration_number = 11;
+    string staff_no = 12;
 }
 
 message ListStaffResponse {
