@@ -8,14 +8,25 @@ message PatientQuestionnaire {
   int32 id = 1;
   int32 clinic_id = 2;
   int32 patient_id = 3;
-  string title = 4;
-  string content = 5;
-  string signature_data = 6;
-  string ocr_text = 7;
-  string status = 8;
-  string metadata = 9;
-  string created_at = 10;
-  string updated_at = 11;
+  string name = 4;
+  string title = 5;
+  string content = 6;
+  string signature_data = 7;
+  string ocr_text = 8;
+  string status = 9;
+  MetadataFields metadata = 10;
+  string created_at = 11;
+  string updated_at = 12;
+}
+
+message MetadataFields {
+  map<string, string> field_values = 1;
+  map<string, Position> positions = 2;
+}
+
+message Position {
+  int32 x = 1;
+  int32 y = 2;
 }
 
 message ListPatientQuestionnairesRequest {
@@ -44,12 +55,13 @@ message GetPatientQuestionnaireResponse {
 message StorePatientQuestionnaireRequest {
   int32 clinic_id = 1;
   int32 patient_id = 2;
-  string title = 3;
-  string content = 4;
-  string signature_data = 5;
-  string ocr_text = 6;
-  string status = 7;
-  string metadata = 8;
+  string name = 3;
+  string title = 4;
+  string content = 5;
+  string signature_data = 6;
+  string ocr_text = 7;
+  string status = 8;
+  MetadataFields metadata = 9;
 }
 
 message StorePatientQuestionnaireResponse {
@@ -58,12 +70,13 @@ message StorePatientQuestionnaireResponse {
 
 message UpdatePatientQuestionnaireRequest {
   int32 id = 1;
-  string title = 2;
-  string content = 3;
-  string signature_data = 4;
-  string ocr_text = 5;
-  string status = 6;
-  string metadata = 7;
+  string name = 2;
+  string title = 3;
+  string content = 4;
+  string signature_data = 5;
+  string ocr_text = 6;
+  string status = 7;
+  MetadataFields metadata = 8;
 }
 
 message UpdatePatientQuestionnaireResponse {
