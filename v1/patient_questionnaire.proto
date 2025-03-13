@@ -21,10 +21,10 @@ message PatientQuestionnaire {
 
 message MetadataFields {
   map<string, string> field_values = 1;
-  map<string, Position> positions = 2;
+  map<string, QuestionnairePosition> positions = 2;
 }
 
-message Position {
+message QuestionnairePosition {
   int32 x = 1;
   int32 y = 2;
 }
