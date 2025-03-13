@@ -9,6 +9,7 @@ message VerifyRequest {
   string role = 2;
   string token = 3;
   string type = 4;
+  int32 clinic_id = 5;
 }
 
 message VerifyResponse {

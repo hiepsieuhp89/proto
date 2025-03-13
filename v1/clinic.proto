@@ -24,6 +24,7 @@ message Clinic {
   string photo = 17;
   bool medical_record_menu = 18;
   string meta_data = 19;
+  string line_config = 20;
 }
 
 message ClinicListRequest {
