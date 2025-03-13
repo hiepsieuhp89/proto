@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message PatientQuestionnaire {
+  int32 id = 1;
+  int32 clinic_id = 2;
+  int32 patient_id = 3;
+  string title = 4;
+  string content = 5;
+  string signature_data = 6;
+  string ocr_text = 7;
+  string status = 8;
+  string metadata = 9;
+  string created_at = 10;
+  string updated_at = 11;
+}
+
+message ListPatientQuestionnairesRequest {
+  int32 clinic_id = 1;
+  int32 patient_id = 2;
+  string keyword = 3;
+  int32 page = 4;
+  int32 size = 5;
+}
+
+message ListPatientQuestionnairesResponse {
+  repeated PatientQuestionnaire questionnaires = 1;
+  int32 total = 2;
+  int32 current_page = 3;
+  int32 size = 4;
+}
+
+message GetPatientQuestionnaireRequest {
+  int32 id = 1;
+}
+
+message GetPatientQuestionnaireResponse {
+  PatientQuestionnaire questionnaire = 1;
+}
+
+message StorePatientQuestionnaireRequest {
+  int32 clinic_id = 1;
+  int32 patient_id = 2;
+  string title = 3;
+  string content = 4;
+  string signature_data = 5;
+  string ocr_text = 6;
+  string status = 7;
+  string metadata = 8;
+}
+
+message StorePatientQuestionnaireResponse {
+  int32 id = 1;
+}
+
+message UpdatePatientQuestionnaireRequest {
+  int32 id = 1;
+  string title = 2;
+  string content = 3;
+  string signature_data = 4;
+  string ocr_text = 5;
+  string status = 6;
+  string metadata = 7;
+}
+
+message UpdatePatientQuestionnaireResponse {
+  PatientQuestionnaire questionnaire = 1;
+}
+
+message DeletePatientQuestionnaireRequest {
+  int32 id = 1;
+}
+
+message DeletePatientQuestionnaireResponse {
+}
+
+service PatientQuestionnaireService {
+  rpc ListPatientQuestionnaires(ListPatientQuestionnairesRequest) returns (ListPatientQuestionnairesResponse);
+  rpc GetPatientQuestionnaire(GetPatientQuestionnaireRequest) returns (GetPatientQuestionnaireResponse);
+  rpc StorePatientQuestionnaire(StorePatientQuestionnaireRequest) returns (StorePatientQuestionnaireResponse);
+  rpc UpdatePatientQuestionnaire(UpdatePatientQuestionnaireRequest) returns (UpdatePatientQuestionnaireResponse);
+  rpc DeletePatientQuestionnaire(DeletePatientQuestionnaireRequest) returns (DeletePatientQuestionnaireResponse);
+} 
