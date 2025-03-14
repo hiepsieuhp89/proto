@@ -14,19 +14,9 @@ message PatientQuestionnaire {
   string signature_data = 7;
   string ocr_text = 8;
   string status = 9;
-  MetadataFields metadata = 10;
+  string metadata = 10;
   string created_at = 11;
   string updated_at = 12;
-}
-
-message MetadataFields {
-  map<string, string> field_values = 1;
-  map<string, QuestionnairePosition> positions = 2;
-}
-
-message QuestionnairePosition {
-  int32 x = 1;
-  int32 y = 2;
 }
 
 message ListPatientQuestionnairesRequest {
@@ -61,7 +51,7 @@ message StorePatientQuestionnaireRequest {
   string signature_data = 6;
   string ocr_text = 7;
   string status = 8;
-  MetadataFields metadata = 9;
+  string metadata = 9;
 }
 
 message StorePatientQuestionnaireResponse {
@@ -76,7 +66,7 @@ message UpdatePatientQuestionnaireRequest {
   string signature_data = 5;
   string ocr_text = 6;
   string status = 7;
-  MetadataFields metadata = 8;
+  string metadata = 8;
 }
 
 message UpdatePatientQuestionnaireResponse {
