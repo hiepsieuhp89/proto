@@ -24,6 +24,8 @@ message MenuItem {
   int32 quantity = 12;
   int32 expired_after = 13;
   string average_execution_time = 14;
+  string body = 15;
+  string pay_link = 16;
 }
 
 message ListMenuResponse {
