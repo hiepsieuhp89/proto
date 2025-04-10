@@ -26,6 +26,7 @@ message MenuItem {
   string average_execution_time = 14;
   string body = 15;
   string pay_link = 16;
+  int32 duplicate = 17;
 }
 
 message ListMenuResponse {
