@@ -1,12 +1,26 @@
 syntax = "proto3";
 import "proto/v1/reception.proto";
-
+import "proto/v1/question_answer.proto";
 package proto.v1;
 
 option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
 
 message ListMenuRequest {
   int32 clinic_id = 1;
+}
+
+message ProductPaymentStep { 
+  string name = 1;
+  string next = 2;
+  string back = 3;
+  repeated QuestionAnswer form = 4;
+}
+
+
+message ProductPaymentPage {
+  int32 split = 1;
+  string description = 2;
+  repeated ProductPaymentStep steps = 3;
 }
 
 message MenuItem {
