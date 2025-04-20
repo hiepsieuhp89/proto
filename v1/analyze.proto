@@ -8,6 +8,7 @@ message AnalyzeRequest {
   enum Mode {
     MODE_MONTHLY_UNSPECIFIED = 0;
     MODE_ANNUAL = 1;
+    MODE_WEEKLY = 2;
   }
   Mode mode = 1;
   int64 target_date = 2; // Unix timestamp
@@ -18,6 +19,9 @@ message AnalyzeResponse {
   repeated AnalyzeMetric metrics = 2;
   repeated TreatmentBreakdown treatments = 3;
   DemographicStats demographics = 4;
+  TimeOfDayStats time_of_day_stats = 5;
+  WeekdayStats weekday_stats = 6;
+  MenuGenderAnalysis menu_gender_analysis = 7;
 }
 
 message AnalyzeOverview {
@@ -41,6 +45,10 @@ message TreatmentBreakdown {
   int32 count = 2;
   double sales = 3;
   double average_price = 4;
+  int32 male_count = 5;
+  int32 female_count = 6;
+  double male_percent = 7;
+  double female_percent = 8;
 }
 
 message DemographicStats {
@@ -67,6 +75,42 @@ message RevisitStats {
   double male_revisit_rate = 1;
   double female_revisit_rate = 2;
   double overall_revisit_rate = 3;
+}
+
+// Time-based analysis messages
+message TimeSlotStats {
+  int32 count = 1;
+  int32 male_count = 2;
+  int32 female_count = 3;
+  double percentage = 4;
+}
+
+message TimeOfDayStats {
+  TimeSlotStats morning = 1;   // 6:00-12:00
+  TimeSlotStats afternoon = 2; // 12:00-18:00
+  TimeSlotStats evening = 3;   // 18:00-24:00
+}
+
+message DayStats {
+  int32 count = 1;
+  int32 male_count = 2;
+  int32 female_count = 3;
+  double percentage = 4;
+}
+
+message WeekdayStats {
+  DayStats monday = 1;
+  DayStats tuesday = 2;
+  DayStats wednesday = 3;
+  DayStats thursday = 4;
+  DayStats friday = 5;
+  DayStats saturday = 6;
+  DayStats sunday = 7;
+}
+
+message MenuGenderAnalysis {
+  TimeOfDayStats time_of_day = 1;
+  WeekdayStats weekday = 2;
 }
 
 service AnalyzeService {
