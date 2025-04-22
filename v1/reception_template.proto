@@ -15,6 +15,7 @@ message ReceptionTemplate {
   string prescription = 5;
   google.protobuf.Timestamp created_at = 6;
   google.protobuf.Timestamp updated_at = 7;
+  bool is_custom = 8;
 }
 
 // Create
@@ -23,6 +24,7 @@ message CreateReceptionTemplateRequest {
   string complaint = 2;
   string treatment = 3;
   string prescription = 4;
+  bool is_custom = 5;
 }
 
 message CreateReceptionTemplateResponse {
@@ -45,6 +47,7 @@ message UpdateReceptionTemplateRequest {
   string complaint = 3;
   string treatment = 4;
   string prescription = 5;
+  bool is_custom = 6;
 }
 
 message UpdateReceptionTemplateResponse {
@@ -64,6 +67,7 @@ message DeleteReceptionTemplateResponse {
 message ListReceptionTemplatesRequest {
   int32 page = 1;
   int32 page_size = 2;
+  bool is_custom = 3;
 }
 
 message ListReceptionTemplatesResponse {
@@ -73,6 +77,94 @@ message ListReceptionTemplatesResponse {
   int32 current_page = 4;
 }
 
+// Field Type
+message FieldType {
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+// Field Option
+message FieldOption {
+  int64 id = 1;
+  int64 field_id = 2;
+  string option_text = 3;
+  int32 display_order = 4;
+}
+
+// Template Field
+message TemplateField {
+  int64 id = 1;
+  int64 template_id = 2;
+  string title = 3;
+  string field_key = 4;
+  int64 field_type_id = 5;
+  string field_type_name = 6;
+  bool required = 7;
+  int32 display_order = 8;
+  int32 column_position = 9;
+  repeated FieldOption options = 10;
+  google.protobuf.Timestamp created_at = 11;
+  google.protobuf.Timestamp updated_at = 12;
+}
+
+// List Field Types
+message ListFieldTypesRequest {}
+
+message ListFieldTypesResponse {
+  repeated FieldType field_types = 1;
+}
+
+// Create Template Field
+message CreateTemplateFieldRequest {
+  int64 template_id = 1;
+  string title = 2;
+  string field_key = 3;
+  int64 field_type_id = 4;
+  bool required = 5;
+  int32 display_order = 6;
+  int32 column_position = 7;
+  repeated string options = 8;
+}
+
+message CreateTemplateFieldResponse {
+  int64 id = 1;
+}
+
+// Get Template Fields
+message GetTemplateFieldsRequest {
+  int64 template_id = 1;
+}
+
+message GetTemplateFieldsResponse {
+  repeated TemplateField fields = 1;
+}
+
+// Update Template Field
+message UpdateTemplateFieldRequest {
+  int64 id = 1;
+  string title = 2;
+  string field_key = 3;
+  int64 field_type_id = 4;
+  bool required = 5;
+  int32 display_order = 6;
+  int32 column_position = 7;
+  repeated string options = 8;
+}
+
+message UpdateTemplateFieldResponse {
+  bool success = 1;
+}
+
+// Delete Template Field
+message DeleteTemplateFieldRequest {
+  int64 id = 1;
+}
+
+message DeleteTemplateFieldResponse {
+  bool success = 1;
+}
+
 // ReceptionTemplateService defines the gRPC service
 service ReceptionTemplateService {
   rpc CreateReceptionTemplate(CreateReceptionTemplateRequest) returns (CreateReceptionTemplateResponse);
@@ -80,4 +172,13 @@ service ReceptionTemplateService {
   rpc UpdateReceptionTemplate(UpdateReceptionTemplateRequest) returns (UpdateReceptionTemplateResponse);
   rpc DeleteReceptionTemplate(DeleteReceptionTemplateRequest) returns (DeleteReceptionTemplateResponse);
   rpc ListReceptionTemplates(ListReceptionTemplatesRequest) returns (ListReceptionTemplatesResponse);
+  
+  // Field type endpoints
+  rpc ListFieldTypes(ListFieldTypesRequest) returns (ListFieldTypesResponse);
+  
+  // Template field endpoints
+  rpc CreateTemplateField(CreateTemplateFieldRequest) returns (CreateTemplateFieldResponse);
+  rpc GetTemplateFields(GetTemplateFieldsRequest) returns (GetTemplateFieldsResponse);
+  rpc UpdateTemplateField(UpdateTemplateFieldRequest) returns (UpdateTemplateFieldResponse);
+  rpc DeleteTemplateField(DeleteTemplateFieldRequest) returns (DeleteTemplateFieldResponse);
 }
