@@ -174,11 +174,11 @@ service ReceptionTemplateService {
   rpc ListReceptionTemplates(ListReceptionTemplatesRequest) returns (ListReceptionTemplatesResponse);
   
   // Field type endpoints
-  rpc ListFieldTypes(ListFieldTypesRequest) returns (ListFieldTypesResponse);
+  // rpc ListFieldTypes(ListFieldTypesRequest) returns (ListFieldTypesResponse);
   
   // Template field endpoints
-  rpc CreateTemplateField(CreateTemplateFieldRequest) returns (CreateTemplateFieldResponse);
-  rpc GetTemplateFields(GetTemplateFieldsRequest) returns (GetTemplateFieldsResponse);
-  rpc UpdateTemplateField(UpdateTemplateFieldRequest) returns (UpdateTemplateFieldResponse);
-  rpc DeleteTemplateField(DeleteTemplateFieldRequest) returns (DeleteTemplateFieldResponse);
+  // rpc CreateTemplateField(CreateTemplateFieldRequest) returns (CreateTemplateFieldResponse);
+  // rpc GetTemplateFields(GetTemplateFieldsRequest) returns (GetTemplateFieldsResponse);
+  // rpc UpdateTemplateField(UpdateTemplateFieldRequest) returns (UpdateTemplateFieldResponse);
+  // rpc DeleteTemplateField(DeleteTemplateFieldRequest) returns (DeleteTemplateFieldResponse);
 }
