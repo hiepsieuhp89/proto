@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message MachineMenu {
+    int32 machine_id = 1;
+    int32 menu_id = 2;
+    string machine_name = 3;
+    string model_number = 4;
+    string minor_category = 5;
+    string major_category = 6;
+    string examination_category = 7;
+    int32 price = 8;
+}
+
+message CreateMachineMenuRequest {
+    int32 machine_id = 1;
+    int32 menu_id = 2;
+}
+
+message CreateMachineMenuResponse {
+    string message = 1;
+}
+
+message DeleteMachineMenuRequest {
+    int32 machine_id = 1;
+    int32 menu_id = 2;
+}
+
+message DeleteMachineMenuResponse {
+    string message = 1;
+}
+
+message ListMachineMenuByMachineRequest {
+    int32 machine_id = 1;
+}
+
+message ListMachineMenuByMachineResponse {
+    repeated MachineMenu machine_menus = 1;
+}
+
+message ListMachineMenuByMenuRequest {
+    int32 menu_id = 1;
+}
+
+message ListMachineMenuByMenuResponse {
+    repeated MachineMenu machine_menus = 1;
+}
+
+service MachineMenuService {
+    rpc CreateMachineMenu(CreateMachineMenuRequest) returns (CreateMachineMenuResponse);
+    rpc DeleteMachineMenu(DeleteMachineMenuRequest) returns (DeleteMachineMenuResponse);
+    rpc ListMachineMenuByMachine(ListMachineMenuByMachineRequest) returns (ListMachineMenuByMachineResponse);
+    rpc ListMachineMenuByMenu(ListMachineMenuByMenuRequest) returns (ListMachineMenuByMenuResponse);
+} 

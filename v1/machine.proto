@@ -1,0 +1,93 @@
+syntax = "proto3";
+
+package proto.v1;
+
+option go_package = "github.com/shukubota/empowercloud-server/gen/proto/v1;v1";
+
+message Machine {
+    int32 id = 1;
+    int32 clinic_id = 2;
+    int32 room_id = 3;
+    string room_name = 4;
+    string machine_name = 5;
+    string model_number = 6;
+    string description = 7;
+    string purchase_date = 8;
+    string maintenance_date = 9;
+    string status = 10;
+}
+
+message MachineListRequest {
+    int32 clinic_id = 1;
+    string keyword = 2;
+    int32 page = 3;
+    int32 size = 4;
+}
+
+message MachineListResponse {
+    repeated Machine machines = 1;
+    int32 total = 2;
+}
+
+message CreateMachineRequest {
+    int32 clinic_id = 1;
+    int32 room_id = 2;
+    string machine_name = 3;
+    string model_number = 4;
+    string description = 5;
+    string purchase_date = 6;
+    string maintenance_date = 7;
+    string status = 8;
+}
+
+message CreateMachineResponse {
+    int32 id = 1;
+}
+
+message UpdateMachineRequest {
+    int32 id = 1;
+    int32 room_id = 2;
+    string machine_name = 3;
+    string model_number = 4;
+    string description = 5;
+    string purchase_date = 6;
+    string maintenance_date = 7;
+    string status = 8;
+}
+
+message UpdateMachineResponse {
+    int32 id = 1;
+}
+
+message DeleteMachineRequest {
+    int32 id = 1;
+}
+
+message DeleteMachineResponse {
+    string message = 1;
+}
+
+message GetMachineRequest {
+    int32 id = 1;
+}
+
+message GetMachineResponse {
+    Machine machine = 1;
+}
+
+message GetMachinesByRoomRequest {
+    int32 room_id = 1;
+}
+
+message GetMachinesByRoomResponse {
+    repeated Machine machines = 1;
+}
+
+service MachineService {
+    rpc MachineList(MachineListRequest) returns (MachineListResponse);
+    rpc CreateMachine(CreateMachineRequest) returns (CreateMachineResponse);
+    rpc UpdateMachine(UpdateMachineRequest) returns (UpdateMachineResponse);
+    rpc DeleteMachine(DeleteMachineRequest) returns (DeleteMachineResponse);
+    rpc GetMachine(GetMachineRequest) returns (GetMachineResponse);
+    rpc GetMachinesByRoom(GetMachinesByRoomRequest) returns (GetMachinesByRoomResponse);
+} 
