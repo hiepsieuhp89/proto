@@ -66,6 +66,7 @@ message Reception {
   string end_time = 15;
   string duration = 16;
   string shift_ids = 17;
+  string line_id = 18;
 }
 
 message DetailReception {
@@ -86,6 +87,7 @@ message DetailReception {
   int32 clinic_id = 15;
   string end_time = 16;
   string shift_ids = 17;
+  string line_id = 18;
 }
 
 message GetDetailReceptionRequest {

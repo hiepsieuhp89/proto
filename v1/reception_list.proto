@@ -54,6 +54,19 @@ message UserReceptionListResponse {
   repeated Reception receptions = 4;
 }
 
+message LineUserReceptionListRequest {
+  string line_id = 1;
+  int32 page = 2;
+  int32 size = 3;
+}
+
+message LineUserReceptionListResponse {
+  int32 total_page = 1;
+  int32 current_page = 2;
+  int32 size = 3;
+  repeated Reception receptions = 4;
+}
+
 service ReceptionService {
   rpc ReceptionList(ReceptionListRequest) returns (ReceptionListResponse);
   rpc FirstReceptionList(FirstReceptionListRequest) returns (FirstReceptionListResponse);
@@ -67,4 +80,5 @@ service ReceptionService {
   rpc CreateReception(CreateReceptionRequest) returns (CreateReceptionResponse);
   rpc StoreReception(StoreReceptionRequest) returns (StoreReceptionResponse);
   rpc FilterWorkSchedule(FilterWorkScheduleRequest) returns (FilterWorkScheduleResponse);
+  rpc LineUserReceptionList(LineUserReceptionListRequest) returns (LineUserReceptionListResponse);
 }
