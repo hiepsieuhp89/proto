@@ -92,6 +92,14 @@ message StorePatientResponse {
   int32 id = 1;
 }
 
+message FindByLineIDRequest {
+  string line_id = 1;
+}
+
+message FindByLineIDResponse {
+  Patient patient = 1;
+}
+
 service PatientService {
   rpc ListPatients(ListPatientsRequest) returns (ListPatientsResponse);
   rpc DetailPatient(DetailPatientRequest) returns (DetailPatientResponse);
@@ -99,4 +107,5 @@ service PatientService {
   rpc UserInfo(UserInfoRequest) returns (UserInfoResponse);
   rpc SearchPatient(SearchPatientRequest) returns (SearchPatientResponse);
   rpc StorePatient(StorePatientRequest) returns (StorePatientResponse);
+  rpc FindByLineID(FindByLineIDRequest) returns (FindByLineIDResponse);
 }
