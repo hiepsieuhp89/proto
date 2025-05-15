@@ -266,13 +266,6 @@ message GetAvailableTimeSlotsResponse {
   string execution_time = 2;
 }
 
-service ReceptionService {
-  rpc GetMenuMachines(GetMenuMachinesRequest) returns (GetMenuMachinesResponse);
-  rpc GetMachineRooms(GetMachineRoomsRequest) returns (GetMachineRoomsResponse);
-  rpc GetAvailableDoctors(GetAvailableDoctorsRequest) returns (GetAvailableDoctorsResponse);
-  rpc GetAvailableTimeSlots(GetAvailableTimeSlotsRequest) returns (GetAvailableTimeSlotsResponse);
-}
-
 // New service for machine scheduling APIs
 service ReceptionScheduleService {
   rpc GetMenuMachines(GetMenuMachinesRequest) returns (GetMenuMachinesResponse);
