@@ -67,6 +67,8 @@ message Reception {
   string duration = 16;
   string shift_ids = 17;
   string line_id = 18;
+  int32 machine_id = 19;
+  int32 room_id = 20;
 }
 
 message DetailReception {
@@ -88,6 +90,8 @@ message DetailReception {
   string end_time = 16;
   string shift_ids = 17;
   string line_id = 18;
+  int32 machine_id = 19;
+  int32 room_id = 20;
 }
 
 message GetDetailReceptionRequest {
@@ -122,6 +126,8 @@ message UpdateReceptionRequest {
   string reception_time = 4;
   string appointment_time = 5;
   string duration = 6;
+  int32 machine_id = 7;
+  int32 room_id = 8;
 }
 
 message UpdateReceptionResponse {
@@ -154,6 +160,8 @@ message GetReceptionScheduleRequest {
   int64 doctor_id = 2;
   string from_date = 4;
   string to_date = 5;
+  int32 machine_id = 6;
+  int32 room_id = 7;
 }
 
 message GetReceptionScheduleResponse {
@@ -176,6 +184,8 @@ message CreateReceptionRequest {
   string last_name_furigana = 11;
   string line_id = 12;
   string duration = 13;
+  int32 machine_id = 14;
+  int32 room_id = 15;
 }
 
 message CreateReceptionResponse {
@@ -187,6 +197,8 @@ message FilterWorkScheduleRequest {
   repeated int64 doctor_id = 2;
   repeated string dates = 3;
   int32 filter_type = 4;
+  int32 machine_id = 5;
+  int32 room_id = 6;
 }
 
 message WorkScheduleItem {
