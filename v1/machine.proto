@@ -26,6 +26,17 @@ message MachineRoom {
     int32 quantity = 8;
 }
 
+message MachineMenu {
+    int32 machine_id = 1;
+    int32 menu_id = 2;
+    string machine_name = 3;
+    string model_number = 4;
+    string minor_category = 5;
+    string major_category = 6;
+    string examination_category = 7;
+    int32 price = 8;
+}
+
 message MachineListRequest {
     int32 clinic_id = 1;
     string keyword = 2;
