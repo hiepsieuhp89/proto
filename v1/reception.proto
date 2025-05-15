@@ -1,5 +1,6 @@
 syntax = "proto3";
 import "proto/v1/patient.proto";
+import "proto/v1/machine.proto";
 
 package proto.v1;
 
@@ -212,4 +213,70 @@ message FilterWorkScheduleResponse {
   repeated Doctor doctors = 1;
   repeated string dates = 2;
   repeated WorkScheduleItem schedules = 3;
+}
+
+message GetMenuMachinesRequest {
+  int32 clinic_id = 1;
+  int32 menu_id = 2;
+}
+
+message GetMenuMachinesResponse {
+  repeated MachineRoom machines = 1;
+}
+
+message GetMachineRoomsRequest {
+  int32 clinic_id = 1;
+  int32 menu_id = 2;
+  int32 machine_id = 3;
+}
+
+message GetMachineRoomsResponse {
+  repeated MachineRoom rooms = 1;
+}
+
+message AvailableDoctorCount {
+  string date = 1;
+  int32 doctor_count = 2;
+}
+
+message GetAvailableDoctorsRequest {
+  int32 clinic_id = 1;
+  int32 menu_id = 2;
+  int32 machine_id = 3;
+  int32 room_id = 4;
+  string start_date = 5;
+  string end_date = 6;
+}
+
+message GetAvailableDoctorsResponse {
+  repeated AvailableDoctorCount available_doctors = 1;
+}
+
+message GetAvailableTimeSlotsRequest {
+  int32 clinic_id = 1;
+  int32 menu_id = 2;
+  int32 machine_id = 3;
+  int32 room_id = 4;
+  int64 doctor_id = 5;
+  string date = 6;
+}
+
+message GetAvailableTimeSlotsResponse {
+  repeated string time_slots = 1;
+  string execution_time = 2;
+}
+
+service ReceptionService {
+  rpc GetMenuMachines(GetMenuMachinesRequest) returns (GetMenuMachinesResponse);
+  rpc GetMachineRooms(GetMachineRoomsRequest) returns (GetMachineRoomsResponse);
+  rpc GetAvailableDoctors(GetAvailableDoctorsRequest) returns (GetAvailableDoctorsResponse);
+  rpc GetAvailableTimeSlots(GetAvailableTimeSlotsRequest) returns (GetAvailableTimeSlotsResponse);
+}
+
+// New service for machine scheduling APIs
+service ReceptionScheduleService {
+  rpc GetMenuMachines(GetMenuMachinesRequest) returns (GetMenuMachinesResponse);
+  rpc GetMachineRooms(GetMachineRoomsRequest) returns (GetMachineRoomsResponse);
+  rpc GetAvailableDoctors(GetAvailableDoctorsRequest) returns (GetAvailableDoctorsResponse);
+  rpc GetAvailableTimeSlots(GetAvailableTimeSlotsRequest) returns (GetAvailableTimeSlotsResponse);
 }
